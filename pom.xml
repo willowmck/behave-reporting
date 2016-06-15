@@ -1,11 +1,14 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    
     <modelVersion>4.0.0</modelVersion>
-    <groupId>net.masterthought</groupId>
-    <artifactId>cucumber-reporting</artifactId>
+    <groupId>org.orangesoft</groupId>
+    <artifactId>behave-reporting</artifactId>
     <packaging>jar</packaging>
-    <version>2.5.1-SNAPSHOT</version>
-    <name>cucumber-reporting</name>
-    <url>https://github.com/damianszczepanik/cucumber-reporting</url>
+    <version>1.0-SNAPSHOT</version>
+    <name>behave-reporting</name>
+    <url>https://github.com/willowmck/behave-reporting</url>
 
     <properties>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -13,7 +16,7 @@
         <project.build.resourceEncoding>UTF-8</project.build.resourceEncoding>
         <maven.compile.encoding>UTF-8</maven.compile.encoding>
  
-        <powermock.version>1.6.4</powermock.version>
+        <powermock.version>1.6.5</powermock.version>
         <log4j.version>2.6.1</log4j.version>
 
         <test.integration.pattern>**/*IntegrationTest*.java</test.integration.pattern>
@@ -22,7 +25,7 @@
     <parent>
         <groupId>org.sonatype.oss</groupId>
         <artifactId>oss-parent</artifactId>
-        <version>7</version>
+        <version>9</version>
     </parent>
 
     <distributionManagement>
@@ -37,14 +40,14 @@
     </distributionManagement>
 
     <scm>
-        <connection>scm:git:git@github.com:damianszczepanik/cucumber-reporting.git</connection>
-        <developerConnection>scm:git:git@github.com:damianszczepanik/cucumber-reporting.git</developerConnection>
-        <url>git@github.com:damianszczepanik/cucumber-reporting.git</url>
+        <connection>scm:git:git@github.com:willowmck/behave-reporting.git</connection>
+        <developerConnection>scm:git:git@github.com:willowmck/behave-reporting.git</developerConnection>
+        <url>git@github.com:willowmck/behave-reporting.git</url>
     </scm>
 
     <description>
-        This project provides pretty html reports for Cucumber. It works by generating html from the cucumber json
-        report formatter. So can be used anywhere a json report is generated. Current use is in the cucumber jenkins
+        This project provides pretty html reports for Behave. It works by generating html from the behave json
+        report formatter. So can be used anywhere a json report is generated. Current use is in the behave jenkins
         plugin and a maven mojo to generate the same report from mvn command line when running locally.
     </description>
 
@@ -56,6 +59,11 @@
     </licenses>
 
     <developers>
+        <developer>
+            <id>willowmck</id>
+            <name>Will McKinley</name>
+            <email>willowmck@gmail.com</email>
+        </developer>
         <developer>
             <id>damianszczepanik</id>
             <name>Damian Szczepanik</name>
@@ -82,8 +90,9 @@
             </activation>
 
             <properties>
+                <!-- Disabling until I create my own key to release this plugin
                 <gpg.keyname>0738FA8F</gpg.keyname>
-                <release.username>Damian Szczepanik</release.username>
+                <release.username>Damian Szczepanik</release.username>-->
             </properties>
 
             <build>
