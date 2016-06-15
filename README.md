@@ -1,50 +1,50 @@
-[![Build Status](https://img.shields.io/travis/damianszczepanik/cucumber-reporting.svg?label=Travis%20bulid)](https://travis-ci.org/damianszczepanik/cucumber-reporting)
-[![Build Status](https://img.shields.io/appveyor/ci/damianszczepanik/cucumber-reporting/master.svg?label=AppVeyor%20build)](https://ci.appveyor.com/project/damianszczepanik/cucumber-reporting/history)
+[![Build Status](https://img.shields.io/travis/willowmck/behave-reporting.svg?label=Travis%20bulid)](https://travis-ci.org/willowmck/behave-reporting)
+[![Build Status](https://img.shields.io/appveyor/ci/willowmck/behave-reporting/master.svg?label=AppVeyor%20build)](https://ci.appveyor.com/project/willowmck/behave-reporting/history)
 
-[![Coverage Status](https://img.shields.io/codecov/c/github/damianszczepanik/cucumber-reporting/master.svg?label=Unit%20tests%20coverage)](https://codecov.io/github/damianszczepanik/cucumber-reporting)
-[![SonarQube coverage](https://img.shields.io/sonar/http/nemo.sonarqube.org/net.masterthought:cucumber-reporting/coverage.svg?label=All%20tests%20coverage)](http://nemo.sonarqube.org/overview/coverage?id=net.masterthought%3Acucumber-reporting)
-[![SonarQube tech debt](https://img.shields.io/sonar/http/nemo.sonarqube.org/net.masterthought:cucumber-reporting/tech_debt.svg?label=Sonarqube%20tech%20debt)](http://nemo.sonarqube.org/overview/debt?id=net.masterthought%3Acucumber-reporting)
-[![Coverity](https://scan.coverity.com/projects/6166/badge.svg?label=Coverity%20analysis)](https://scan.coverity.com/projects/damianszczepanik-cucumber-reporting)
-[![Codacy](https://api.codacy.com/project/badge/grade/7f206992ed364f0896490057fdbdaa2e)](https://www.codacy.com/app/damianszczepanik/cucumber-reporting)
+[![Coverage Status](https://img.shields.io/codecov/c/github/willowmck/behave-reporting/master.svg?label=Unit%20tests%20coverage)](https://codecov.io/github/willowmck/behave-reporting)
+[![SonarQube coverage](https://img.shields.io/sonar/http/nemo.sonarqube.org/org.orangesoft:behave-reporting/coverage.svg?label=All%20tests%20coverage)](http://nemo.sonarqube.org/overview/coverage?id=org.orangesoft%3Abehave-reporting)
+[![SonarQube tech debt](https://img.shields.io/sonar/http/nemo.sonarqube.org/org.orangesoft:behave-reporting/tech_debt.svg?label=Sonarqube%20tech%20debt)](http://nemo.sonarqube.org/overview/debt?id=org.orangesoft%3Abehave-reporting)
+[![Coverity](https://scan.coverity.com/projects/6166/badge.svg?label=Coverity%20analysis)](https://scan.coverity.com/projects/willowmck-behave-reporting)
+[![Codacy](https://api.codacy.com/project/badge/grade/7f206992ed364f0896490057fdbdaa2e)](https://www.codacy.com/app/willowmck/behave-reporting)
 [![Maven Dependencies](https://www.versioneye.com/user/projects/55c5301d653762001a0035ed/badge.svg)](https://www.versioneye.com/user/projects/55c5301d653762001a0035ed?child=summary)
 
-[![Maven Central](https://img.shields.io/maven-central/v/net.masterthought/cucumber-reporting.svg)](http://search.maven.org/#search|gav|1|g%3A%22net.masterthought%22%20AND%20a%3A%22cucumber-reporting%22)
-[![License](https://img.shields.io/badge/license-GNU%20LGPL%20v2.1-blue.svg)](https://raw.githubusercontent.com/damianszczepanik/cucumber-reporting/master/LICENCE)
+[![Maven Central](https://img.shields.io/maven-central/v/org.orangesoft/behave-reporting.svg)](http://search.maven.org/#search|gav|1|g%3A%22org.orangesoft%22%20AND%20a%3A%22behave-reporting%22)
+[![License](https://img.shields.io/badge/license-GNU%20LGPL%20v2.1-blue.svg)](https://raw.githubusercontent.com/willowmck/behave-reporting/master/LICENCE)
 
-# Publish pretty [cucumber](http://cukes.info/) reports
+# Publish pretty [behave](http://pythonhosted.org/behave/) reports
 
-This is a Java report publisher primarily created to publish cucumber reports on the Jenkins build server. It publishes pretty html reports showing the results of cucumber runs. It has been split out into a standalone package so it can be used for Jenkins and maven command line as well as any other packaging that might be useful.
+This is a Java report publisher primarily created to publish behave reports on the Jenkins build server. It publishes pretty html reports showing the results of behave runs. It has been split out into a standalone package so it can be used for Jenkins and maven command line as well as any other packaging that might be useful.
 
 ## Background
 
-Cucumber is a test automation tool following the principles of Behavioural Driven Design and living documentation. Specifications are written in a concise human readable form and executed in continuous integration.
+Behave is a test automation tool following the principles of Behavioural Driven Design and living documentation. Specifications are written in a concise human readable form and executed in continuous integration.
 
-This project allows you to publish the results of a cucumber run as pretty html reports. In order for this to work you must generate a cucumber json report. The project converts the json report into an overview html linking to separate feature file htmls with stats and results.
+This project allows you to publish the results of a behave run as pretty html reports. In order for this to work you must generate a behave json report. The project converts the json report into an overview html linking to separate feature file htmls with stats and results.
 
 ## Install
 
 Add a maven dependency to your pom
 ```xml
 <dependency>
-    <groupId>net.masterthought</groupId>
-    <artifactId>cucumber-reporting</artifactId>
+    <groupId>org.orangesoft</groupId>
+    <artifactId>behave-reporting</artifactId>
     <version>(check version above)</version>
 </dependency>
 ```
 
 Read this if you need further [detailed install and configuration]
-(https://github.com/jenkinsci/cucumber-reports-plugin/wiki/Detailed-Configuration) instructions for using the Jenkins version of this project
+(https://github.com/willowmck/behave-reports-plugin/wiki/Detailed-Configuration) instructions for using the Jenkins version of this project
 
 ## Usage
 ```java
 File reportOutputDirectory = new File("target");
 List<String> jsonFiles = new ArrayList<>();
-jsonFiles.add("cucumber-report-1.json");
-jsonFiles.add("cucumber-report-2.json");
+jsonFiles.add("behave-report-1.json");
+jsonFiles.add("behave-report-2.json");
 
 String jenkinsBasePath = "";
 String buildNumber = "1";
-String projectName = "cucumber-jvm";
+String projectName = "behave";
 boolean skippedFails = true;
 boolean pendingFails = false;
 boolean undefinedFails = true;
@@ -69,37 +69,37 @@ runWithJenkins means put in the links back to Jenkins in the report.
 There is a feature overview page:
 
 ![feature overview page]
-(https://github.com/damianszczepanik/cucumber-reporting/raw/master/.README/feature-overview.png)
+(https://github.com/willowmck/behave-reporting/raw/master/.README/feature-overview.png)
 
 And there are also feature specific results pages:
 
 ![feature specific page passing]
-(https://github.com/damianszczepanik/cucumber-reporting/raw/master/.README/feature-passed.png)
+(https://github.com/willowmck/behave-reporting/raw/master/.README/feature-passed.png)
 
 And useful information for failures:
 
 ![feature specific page passing]
-(https://github.com/damianszczepanik/cucumber-reporting/raw/master/.README/feature-failed.png)
+(https://github.com/willowmck/behave-reporting/raw/master/.README/feature-failed.png)
 
-If you have tags in your cucumber features you can see a tag overview:
+If you have tags in your behave features you can see a tag overview:
 
 ![Tag overview]
-(https://github.com/damianszczepanik/cucumber-reporting/raw/master/.README/tag-overview.png)
+(https://github.com/willowmck/behave-reporting/raw/master/.README/tag-overview.png)
 
 And you can drill down into tag specific reports:
 
 ![Tag report]
-(https://github.com/damianszczepanik/cucumber-reporting/raw/master/.README/tag-report.png)
+(https://github.com/willowmck/behave-reporting/raw/master/.README/tag-report.png)
 
 
 ## Code quality
 
 Once you developed your new feature or improvement you should test it by providing several unit or integration tests.
 
-![codecov.io](https://codecov.io/gh/damianszczepanik/cucumber-reporting/branch/master/graphs/tree.svg)
+![codecov.io](https://codecov.io/gh/willowmck/behave-reporting/branch/master/graphs/tree.svg)
 
 
 ## Contribution
 
-Interested in contributing to the cucumber-reporting?  Great!  Start [here]
-(https://github.com/damianszczepanik/cucumber-reporting).
+Interested in contributing to the behave-reporting?  Great!  Start [here]
+(https://github.com/willowmck/behave-reporting).
