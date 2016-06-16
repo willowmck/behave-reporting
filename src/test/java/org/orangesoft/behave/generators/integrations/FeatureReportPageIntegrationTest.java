@@ -1,6 +1,5 @@
 package org.orangesoft.behave.generators.integrations;
 
-import static org.assertj.core.api.Assertions.assertThat;
 
 import java.io.File;
 
@@ -27,6 +26,7 @@ import org.orangesoft.behave.json.Hook;
 import org.orangesoft.behave.json.Output;
 import org.orangesoft.behave.json.Row;
 import org.orangesoft.behave.json.Step;
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * @author Damian Szczepanik (damianszczepanik@github)
@@ -92,9 +92,9 @@ public class FeatureReportPageIntegrationTest extends PageTest {
         assertThat(brief.getName()).isEqualTo(feature.getName());
         brief.hasStatus(feature.getStatus());
 
-        TagAssertion[] tags = featureDetails.getTags();
-        assertThat(tags).hasSize(1);
-        tags[0].getLink().hasLabelAndAddress("@featureTag", "featureTag.html");
+        TagAssertion[] testTags = featureDetails.getTags();
+        assertThat(testTags).hasSize(1);
+        testTags[0].getLink().hasLabelAndAddress("@featureTag", "featureTag.html");
 
         assertThat(featureDetails.getDescription()).isEqualTo(feature.getDescription());
     }
@@ -119,10 +119,10 @@ public class FeatureReportPageIntegrationTest extends PageTest {
         ElementAssertion firstElement = elements[1];
         Element scenario = feature.getElements()[1];
 
-        TagAssertion[] tags = firstElement.getTags();
-        assertThat(tags).hasSize(scenario.getTags().length);
-        for (int i = 0; i < tags.length; i++) {
-            tags[i].getLink().hasLabelAndAddress(scenario.getTags()[i].getName(), scenario.getTags()[i].getFileName());
+        TagAssertion[] testTags = firstElement.getTags();
+        assertThat(testTags).hasSize(scenario.getTags().length);
+        for (int i = 0; i < testTags.length; i++) {
+            testTags[i].getLink().hasLabelAndAddress(scenario.getTags()[i].getName(), scenario.getTags()[i].getFileName());
         }
 
         BriefAssertion brief = firstElement.getBrief();
@@ -185,11 +185,11 @@ public class FeatureReportPageIntegrationTest extends PageTest {
 
         StepsAssertion stepsSection = secondElement.getStepsSection();
         stepsSection.getBrief().hasStatus(element.getStepsStatus());
-        StepAssertion[] steps = stepsSection.getSteps();
-        assertThat(steps).hasSameSizeAs(element.getSteps());
+        StepAssertion[] testSteps = stepsSection.getSteps();
+        assertThat(testSteps).hasSameSizeAs(element.getSteps());
 
-        for (int i = 0; i < steps.length; i++) {
-            BriefAssertion brief = steps[i].getBrief();
+        for (int i = 0; i < testSteps.length; i++) {
+            BriefAssertion brief = testSteps[i].getBrief();
             Step step = element.getSteps()[i];
 
             brief.hasStatus(step.getStatus());
