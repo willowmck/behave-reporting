@@ -1,8 +1,5 @@
 package org.orangesoft.behave;
 
-import org.orangesoft.behave.ValidationException;
-import org.orangesoft.behave.ReportParser;
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.core.StringContains.containsString;
 
 import java.io.IOException;
@@ -13,6 +10,7 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 import org.orangesoft.behave.json.Feature;
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * @author Damian Szczepanik (damianszczepanik@github)
@@ -29,10 +27,10 @@ public class ReportParserTest extends ReportGenerator {
         setUpWithJson(SAMPLE_JSON, SIMPLE_JSON);
 
         // when
-        List<Feature> features = new ReportParser(configuration).parseJsonResults(jsonReports);
+        List<Feature> testFeatures = new ReportParser(configuration).parseJsonResults(jsonReports);
 
         // then
-        assertThat(features).hasSize(3);
+        assertThat(testFeatures).hasSize(3);
     }
 
     @Test
@@ -42,10 +40,10 @@ public class ReportParserTest extends ReportGenerator {
         setUpWithJson(INVALID_JSON, SIMPLE_JSON);
 
         // when
-        List<Feature> features = new ReportParser(configuration).parseJsonResults(jsonReports);
+        List<Feature> testFeatures = new ReportParser(configuration).parseJsonResults(jsonReports);
 
         // then
-        assertThat(features).hasSize(1);
+        assertThat(testFeatures).hasSize(1);
     }
 
     @Test
@@ -55,10 +53,10 @@ public class ReportParserTest extends ReportGenerator {
         setUpWithJson(EMPTY_JSON);
 
         // when
-        List<Feature> features = new ReportParser(configuration).parseJsonResults(jsonReports);
+        List<Feature> testFeatures = new ReportParser(configuration).parseJsonResults(jsonReports);
 
         // then
-        assertThat(features).isEmpty();
+        assertThat(testFeatures).isEmpty();
     }
 
     @Test
@@ -68,10 +66,10 @@ public class ReportParserTest extends ReportGenerator {
         setUpWithJson(INVALID_REPORT_JSON, SIMPLE_JSON);
 
         // when
-        List<Feature> features = new ReportParser(configuration).parseJsonResults(jsonReports);
+        List<Feature> testFeatures = new ReportParser(configuration).parseJsonResults(jsonReports);
 
         // then
-        assertThat(features).hasSize(1);
+        assertThat(testFeatures).hasSize(1);
     }
 
     @Test

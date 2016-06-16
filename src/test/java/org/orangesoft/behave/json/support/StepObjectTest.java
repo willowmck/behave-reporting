@@ -34,7 +34,7 @@ public class StepObjectTest {
 
         // then
         thrown.expect(ValidationException.class);
-        new StepObject(null);
+        StepObject so = new StepObject(null);
     }
 
     @Test

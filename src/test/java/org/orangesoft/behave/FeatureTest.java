@@ -1,7 +1,5 @@
 package org.orangesoft.behave;
 
-import org.orangesoft.behave.Configuration;
-import org.orangesoft.behave.ReportParser;
 import static org.orangesoft.behave.FileReaderUtil.getAbsolutePathFromResource;
 import static org.assertj.core.api.Assertions.assertThat;
 

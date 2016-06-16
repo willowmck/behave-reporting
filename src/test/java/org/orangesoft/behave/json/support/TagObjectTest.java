@@ -32,7 +32,7 @@ public class TagObjectTest extends PageTest {
 
         // then
         thrown.expect(ValidationException.class);
-        new TagObject(null);
+        TagObject to = new TagObject(null);
     }
 
     @Test

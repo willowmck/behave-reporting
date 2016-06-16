@@ -1,6 +1,5 @@
 package org.orangesoft.behave.json;
 
-import org.orangesoft.behave.json.Tag;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.Before;

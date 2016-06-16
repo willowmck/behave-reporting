@@ -1,19 +1,17 @@
 package org.orangesoft.behave;
 
-import org.orangesoft.behave.Configuration;
-import static org.assertj.core.api.Assertions.assertThat;
-
 import java.io.File;
 
 import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * @author Damian Szczepanik (damianszczepanik@github)
  */
 public class ConfigurationTest {
 
-    private static final File outputDirectory = new File("abc");
+    private static final File OUTPUT_DIRECTORY = new File("abc");
 
     private final String projectName = "123";
 
@@ -21,7 +19,7 @@ public class ConfigurationTest {
     public void setStatusFlagsSetsFlags() {
 
         // give
-        Configuration configuration = new Configuration(outputDirectory, projectName);
+        Configuration configuration = new Configuration(OUTPUT_DIRECTORY, projectName);
         boolean failsIfMissingIn = true;
         boolean failsIFPendingIn = false;
         boolean failsIfSkippedIn = true;
@@ -45,7 +43,7 @@ public class ConfigurationTest {
     public void isParallelTesting_ReturnsParallelTesting() {
 
         // give
-        Configuration configuration = new Configuration(outputDirectory, projectName);
+        Configuration configuration = new Configuration(OUTPUT_DIRECTORY, projectName);
         boolean parallelTesting = true;
         configuration.setParallelTesting(parallelTesting);
 
@@ -60,7 +58,7 @@ public class ConfigurationTest {
     public void getJenkinsBasePath_OnSampleBath_ReturnsJenkinsPath() {
 
         // give
-        Configuration configuration = new Configuration(outputDirectory, projectName);
+        Configuration configuration = new Configuration(OUTPUT_DIRECTORY, projectName);
         String basePath = "abc321";
         configuration.setJenkinsBasePath(basePath);
 
@@ -75,7 +73,7 @@ public class ConfigurationTest {
     public void getJenkinsBasePath_OnEmptyPath_ReturnsJenkinsPath() {
 
         // give
-        Configuration configuration = new Configuration(outputDirectory, projectName);
+        Configuration configuration = new Configuration(OUTPUT_DIRECTORY, projectName);
         String basePath = StringUtils.EMPTY;
         configuration.setJenkinsBasePath(basePath);
 
@@ -90,7 +88,7 @@ public class ConfigurationTest {
     public void isRunWithJenkins_ReturnsRunWithJenkins() {
 
         // give
-        Configuration configuration = new Configuration(outputDirectory, projectName);
+        Configuration configuration = new Configuration(OUTPUT_DIRECTORY, projectName);
         boolean runWithJenkins = true;
         configuration.setRunWithJenkins(runWithJenkins);
 
@@ -105,20 +103,20 @@ public class ConfigurationTest {
     public void getReportDirectory_ReturnsOutputDirectory() {
 
         // give
-        Configuration configuration = new Configuration(outputDirectory, projectName);
+        Configuration configuration = new Configuration(OUTPUT_DIRECTORY, projectName);
 
         // when
         File dir = configuration.getReportDirectory();
 
         // then
-        assertThat(dir).isEqualTo(outputDirectory);
+        assertThat(dir).isEqualTo(OUTPUT_DIRECTORY);
     }
     
     @Test
     public void getBuildNumber_ReturnsBuildNumber() {
 
         // give
-        Configuration configuration = new Configuration(outputDirectory, projectName);
+        Configuration configuration = new Configuration(OUTPUT_DIRECTORY, projectName);
         String buildNumber = "123xyz";
         configuration.setBuildNumber(buildNumber);
 
@@ -133,7 +131,7 @@ public class ConfigurationTest {
     public void getProjectName_ReturnsProjectName() {
 
         // give
-        Configuration configuration = new Configuration(outputDirectory, projectName);
+        Configuration configuration = new Configuration(OUTPUT_DIRECTORY, projectName);
 
         // when
         String name = configuration.getProjectName();
