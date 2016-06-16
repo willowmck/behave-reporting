@@ -81,7 +81,7 @@ public class WebAssertion {
     }
 
     private <T extends WebAssertion> T toAssertion(Element inner, Class<T> clazz) {
-        T assertion = null;
+        T assertion ;
         try {
             assertion = (T) clazz.newInstance();
             assertion.element = inner;

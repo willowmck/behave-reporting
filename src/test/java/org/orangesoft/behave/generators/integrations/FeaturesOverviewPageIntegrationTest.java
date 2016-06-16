@@ -24,7 +24,7 @@ public class FeaturesOverviewPageIntegrationTest extends PageTest {
         configuration.setRunWithJenkins(true);
         configuration.setBuildNumber("1");
         page = new FeaturesOverviewPage(reportResult, configuration);
-        final String titleValue = String.format("Cucumber-JVM Html Reports (no %s) - Features Overview",
+        final String titleValue = String.format("Behave Html Reports (no %s) - Features Overview",
                 configuration.getBuildNumber());
 
         // when

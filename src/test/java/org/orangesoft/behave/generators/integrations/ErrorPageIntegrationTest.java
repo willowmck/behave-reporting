@@ -22,7 +22,7 @@ public class ErrorPageIntegrationTest extends PageTest {
         // given
         setUpWithJson(SAMPLE_JSON);
         page = new ErrorPage(reportResult, configuration, cause, jsonReports);
-        final String titleValue = String.format("Cucumber-JVM Html Reports  - Error Page");
+        final String titleValue = String.format("Behave Html Reports  - Error Page");
 
         // when
         page.generatePage();

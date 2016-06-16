@@ -5,6 +5,7 @@ package org.orangesoft.behave.generators.integrations.helpers;
  */
 public class StepAssertion extends ReportAssertion {
 
+    @Override
     public BriefAssertion getBrief() {
         return super.getBrief();
     }

@@ -10,6 +10,7 @@ public class HookAssertion extends ReportAssertion {
         return super.getBrief();
     }
 
+    @Override
     public String getErrorMessage() {
         return oneByClass("message", WebAssertion.class).text();
     }

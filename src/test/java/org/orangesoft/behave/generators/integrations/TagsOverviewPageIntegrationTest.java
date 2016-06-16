@@ -22,7 +22,7 @@ public class TagsOverviewPageIntegrationTest extends PageTest {
         // given
         setUpWithJson(SAMPLE_JSON);
         page = new TagsOverviewPage(reportResult, configuration);
-        final String titleValue = String.format("Cucumber-JVM Html Reports  - Tags Overview",
+        final String titleValue = String.format("Behave Html Reports  - Tags Overview",
                 configuration.getBuildNumber());
 
         // when

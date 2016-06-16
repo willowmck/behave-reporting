@@ -1,6 +1,5 @@
 package org.orangesoft.behave.json.support;
 
-import org.orangesoft.behave.json.support.Status;
 import static org.orangesoft.behave.json.support.Status.FAILED;
 import static org.orangesoft.behave.json.support.Status.MISSING;
 import static org.orangesoft.behave.json.support.Status.PASSED;

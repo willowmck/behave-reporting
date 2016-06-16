@@ -1,7 +1,5 @@
 package org.orangesoft.behave.json.support;
 
-import org.orangesoft.behave.json.support.Status;
-import org.orangesoft.behave.json.support.TagObject;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import org.apache.commons.lang.NotImplementedException;
