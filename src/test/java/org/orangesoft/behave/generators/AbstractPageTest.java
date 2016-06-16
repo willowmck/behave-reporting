@@ -1,8 +1,5 @@
 package org.orangesoft.behave.generators;
 
-import org.orangesoft.behave.generators.FeaturesOverviewPage;
-import org.orangesoft.behave.generators.ErrorPage;
-import org.orangesoft.behave.generators.TagsOverviewPage;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.io.File;

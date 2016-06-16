@@ -1,6 +1,5 @@
 package org.orangesoft.behave.generators;
 
-import org.orangesoft.behave.generators.FeatureReportPage;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import org.apache.velocity.VelocityContext;
