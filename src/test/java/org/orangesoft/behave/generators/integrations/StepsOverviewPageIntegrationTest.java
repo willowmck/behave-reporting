@@ -16,7 +16,7 @@ import org.orangesoft.behave.generators.integrations.helpers.TableRowAssertion;
 public class StepsOverviewPageIntegrationTest extends PageTest {
 
     @Test
-    public void generatePage_generatesTitle() {
+    public void generatePage_generatesTitle() throws Exception {
 
         // given
         setUpWithJson(SAMPLE_JSON);
@@ -37,7 +37,7 @@ public class StepsOverviewPageIntegrationTest extends PageTest {
     }
 
     @Test
-    public void generatePage_generatesLead() {
+    public void generatePage_generatesLead()  throws Exception{
 
         // given
         setUpWithJson(SAMPLE_JSON);
@@ -57,7 +57,7 @@ public class StepsOverviewPageIntegrationTest extends PageTest {
     }
 
     @Test
-    public void generatePage_generatesStatsTableHeader() {
+    public void generatePage_generatesStatsTableHeader()  throws Exception{
 
         // given
         setUpWithJson(SAMPLE_JSON);
@@ -77,7 +77,7 @@ public class StepsOverviewPageIntegrationTest extends PageTest {
     }
 
     @Test
-    public void generatePage_generatesStatsTableBody() {
+    public void generatePage_generatesStatsTableBody() throws Exception{
 
         // given
         setUpWithJson(SAMPLE_JSON);
@@ -93,17 +93,17 @@ public class StepsOverviewPageIntegrationTest extends PageTest {
         assertThat(bodyRows).hasSameSizeAs(steps);
 
         TableRowAssertion firstRow = bodyRows[1];
-        firstRow.hasExactValues("ATMScenario.I_have_a_new_credit_card()", "1", "1m 39s 107ms", "1m 39s 107ms", "100.00%");
+        firstRow.hasExactValues("security/aws/pw-encrypt/steps/pw-encrypt.py:20", "1", "000ms", "000ms", "100.00%");
         firstRow.hasExactCSSClasses("location", "", "duration", "duration", "passed");
-        firstRow.hasExactDataValues("", "", "99107447000", "99107447000", "");
+        firstRow.hasExactDataValues("", "", "0", "0", "");
 
         // also verify the average durations is written to data-values correctly
         TableRowAssertion secondRow = bodyRows[3];
-        secondRow.hasExactDataValues("", "", "90000000", "45000000", "");
+        secondRow.hasExactDataValues("", "", "0", "0", "");
     }
 
     @Test
-    public void generatePage_generatesStatsTableFooter() {
+    public void generatePage_generatesStatsTableFooter() throws Exception {
 
         // given
         setUpWithJson(SAMPLE_JSON);
@@ -117,11 +117,11 @@ public class StepsOverviewPageIntegrationTest extends PageTest {
         DocumentAssertion document = documentFrom(page.getWebPage());
         TableRowAssertion footerCells = document.getSummary().getTableStats().getFooterRow();
 
-        footerCells.hasExactValues("16", "23", "1m 39s 492ms", "4s 325ms", "Totals");
+        footerCells.hasExactValues("7", "7", "000ms", "000ms", "Totals");
     }
 
     @Test
-    public void generatePage_onEmptyJsons_generatesProperMessage() {
+    public void generatePage_onEmptyJsons_generatesProperMessage() throws Exception{
 
         // given
         setUpWithJson(EMPTY_JSON);

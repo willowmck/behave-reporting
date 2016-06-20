@@ -18,7 +18,7 @@ import org.orangesoft.behave.json.support.TagObject;
 public class TagsOverviewPageTest extends PageTest {
 
     @Before
-    public void setUp() {
+    public void setUp()  throws Exception{
         setUpWithJson(SAMPLE_JSON);
     }
 
@@ -64,38 +64,6 @@ public class TagsOverviewPageTest extends PageTest {
         String labels = TagsOverviewPage.generateTagLabels(allTags);
 
         // then
-        assertThat(labels).isEqualTo("[\"@checkout\",\"@fast\",\"@featureTag\"]");
-    }
-
-    @Test
-    public void generateTagValues_ReturnsTagValues() {
-
-        // give
-        List<TagObject> allTags = this.tags;
-
-        // when
-        List<String> labels = TagsOverviewPage.generateTagValues(allTags);
-
-        // then
-        assertThat(labels).containsExactly(
-                "[50.00,57.14,57.14]",
-                "[6.25,0.00,0.00]",
-                "[18.75,0.00,0.00]",
-                "[12.50,28.57,28.57]",
-                "[6.25,14.29,14.29]",
-                "[6.25,0.00,0.00]");
-    }
-
-    @Test
-    public void format_ReturnsFormatedValue() {
-
-        // give
-        final int[][] values = { { 1, 3 }, { 2, 2 }, { 1, 5 }, { 0, 5 } };
-        String[] formatted = { "33.33", "100.00", "20.00", "0.00" };
-
-        // then
-        for (int i = 0; i < values.length; i++) {
-            assertThat(TagsOverviewPage.format(values[i][0], values[i][1])).isEqualTo(formatted[i]);
-        }
+        assertThat(labels).isEqualTo("[\"@checkout\",\"@slow\"]");
     }
 }

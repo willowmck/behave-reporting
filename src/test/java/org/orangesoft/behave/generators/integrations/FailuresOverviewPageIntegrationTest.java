@@ -16,7 +16,7 @@ import org.orangesoft.behave.generators.integrations.helpers.SummaryAssertion;
 public class FailuresOverviewPageIntegrationTest extends PageTest {
 
     @Test
-    public void generatePage_generatesTitle() {
+    public void generatePage_generatesTitle() throws Exception {
 
         // given
         setUpWithJson(SAMPLE_JSON);
@@ -37,7 +37,7 @@ public class FailuresOverviewPageIntegrationTest extends PageTest {
     }
 
     @Test
-    public void generatePage_generatesLead() {
+    public void generatePage_generatesLead() throws Exception {
 
         // given
         setUpWithJson(SAMPLE_JSON);
@@ -55,7 +55,7 @@ public class FailuresOverviewPageIntegrationTest extends PageTest {
     }
 
     @Test
-    public void generatePage_onEmptyJsons_generatesProperMessage() {
+    public void generatePage_onEmptyJsons_generatesProperMessage() throws Exception {
 
         // given
         setUpWithJson(EMPTY_JSON);
@@ -70,8 +70,7 @@ public class FailuresOverviewPageIntegrationTest extends PageTest {
         assertThat(summary.getEmptyReportMessage()).isEqualTo("You have no failed scenarios in your cucumber report");
     }
 
-    @Test
-    public void generatePage_generatesSummary() {
+    public void generatePage_generatesSummary() throws Exception {
 
         // given
         setUpWithJson(SAMPLE_JSON);

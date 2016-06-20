@@ -18,7 +18,7 @@ public class Element {
     private final Step[] steps = new Step[0];
     private final Hook[] before = new Hook[0];
     private final Hook[] after = new Hook[0];
-    private final Tag[] tags = new Tag[0];
+    private final String[] tags = new String[0];
     // End: attributes from JSON file report
 
     private static final String SCENARIO_TYPE = "scenario";
@@ -42,7 +42,7 @@ public class Element {
         return after;
     }
 
-    public Tag[] getTags() {
+    public String[] getTags() {
         return tags;
     }
 

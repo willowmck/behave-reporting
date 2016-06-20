@@ -1,0 +1,118 @@
+[
+{
+  "elements": [
+    {
+      "keyword": "Scenario", 
+      "location": "security/aws/pw-encrypt/pw-encrypt.feature:5", 
+      "name": "Run a CLI tool that prompts for a password key name and password and encrypts the password before adding it to the CM database table", 
+      "steps": [
+        {
+          "keyword": "Given", 
+          "location": "security/aws/pw-encrypt/pw-encrypt.feature:6", 
+          "match": {
+            "arguments": [], 
+            "location": "security/aws/pw-encrypt/steps/pw-encrypt.py:7"
+          }, 
+          "name": "I run the encpryption tool it prompts me for a password key name and a password to encrypt", 
+          "result": {
+            "duration": 0.00011301040649414062, 
+            "status": "passed"
+          }, 
+          "step_type": "given"
+        }, 
+        {
+          "keyword": "Then", 
+          "location": "security/aws/pw-encrypt/pw-encrypt.feature:7", 
+          "match": {
+            "arguments": [], 
+            "location": "security/aws/pw-encrypt/steps/pw-encrypt.py:15"
+          }, 
+          "name": "it retrieves the encryption key from AWS", 
+          "result": {
+            "duration": 5.0067901611328125e-05, 
+            "status": "passed"
+          }, 
+          "step_type": "then"
+        }, 
+        {
+          "keyword": "And", 
+          "location": "security/aws/pw-encrypt/pw-encrypt.feature:8", 
+          "match": {
+            "arguments": [], 
+            "location": "security/aws/pw-encrypt/steps/pw-encrypt.py:20"
+          }, 
+          "name": "encrypts the password", 
+          "result": {
+            "duration": 0.30002284049987793, 
+            "status": "passed"
+          }, 
+          "step_type": "then"
+        }, 
+        {
+          "keyword": "And", 
+          "location": "security/aws/pw-encrypt/pw-encrypt.feature:9", 
+          "match": {
+            "arguments": [], 
+            "location": "security/aws/pw-encrypt/steps/pw-encrypt.py:28"
+          }, 
+          "name": "prints out the encrypted password on the command line", 
+          "result": {
+            "duration": 8.7022781372070312e-05, 
+            "status": "passed"
+          }, 
+          "step_type": "then"
+        }, 
+        {
+          "keyword": "Given", 
+          "location": "security/aws/pw-encrypt/pw-encrypt.feature:11", 
+          "match": {
+            "arguments": [], 
+            "location": "security/aws/pw-encrypt/steps/pw-encrypt.py:36"
+          }, 
+          "name": "an encrypted password", 
+          "result": {
+            "duration": 5.4836273193359375e-05, 
+            "status": "passed"
+          }, 
+          "step_type": "given"
+        }, 
+        {
+          "keyword": "When", 
+          "location": "security/aws/pw-encrypt/pw-encrypt.feature:12", 
+          "match": {
+            "arguments": [], 
+            "location": "security/aws/pw-encrypt/steps/pw-encrypt.py:45"
+          }, 
+          "name": "I run the encryption tool with flags --region <region> --pwname <name> --upload <password>", 
+          "result": {
+            "duration": 0.11590409278869629, 
+            "status": "passed"
+          }, 
+          "step_type": "when"
+        }, 
+        {
+          "keyword": "Then", 
+          "location": "security/aws/pw-encrypt/pw-encrypt.feature:13", 
+          "match": {
+            "arguments": [], 
+            "location": "security/aws/pw-encrypt/steps/pw-encrypt.py:53"
+          }, 
+          "name": "the encrypted password is saved to the Cloud Manager dynamodb settings table.", 
+          "result": {
+            "duration": 0.04565119743347168, 
+            "status": "passed"
+          }, 
+          "step_type": "then"
+        }
+      ], 
+      "tags": ["@slow"], 
+      "type": "scenario"
+    }
+  ], 
+  "keyword": "Feature", 
+  "location": "security/aws/pw-encrypt/pw-encrypt.feature:2", 
+  "name": "Encrypt Cloud Manager functional account passwords and add them to the CM dynamodb settings table", 
+  "status": "passed", 
+  "tags": ["@checkout"]
+}
+]

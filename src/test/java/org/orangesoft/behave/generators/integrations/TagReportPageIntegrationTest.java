@@ -18,7 +18,7 @@ import org.orangesoft.behave.json.support.TagObject;
 public class TagReportPageIntegrationTest extends PageTest {
 
     @Test
-    public void generatePage_generatesTitle() {
+    public void generatePage_generatesTitle() throws Exception {
 
         // given
         setUpWithJson(SAMPLE_JSON);
@@ -37,7 +37,7 @@ public class TagReportPageIntegrationTest extends PageTest {
     }
 
     @Test
-    public void generatePage_generatesStatsTableBody() {
+    public void generatePage_generatesStatsTableBody()  throws Exception{
 
         // given
         setUpWithJson(SAMPLE_JSON);
@@ -52,12 +52,12 @@ public class TagReportPageIntegrationTest extends PageTest {
         DocumentAssertion document = documentFrom(page.getWebPage());
         TableRowAssertion bodyRow = document.getSummary().getTableStats().getBodyRow();
 
-        bodyRow.hasExactValues(tag.getName(), "2", "1", "1", "16", "8", "1", "3", "2", "1", "1", "231ms", "Failed");
-        bodyRow.hasExactCSSClasses("tagname", "", "", "", "", "", "failed", "skipped", "pending", "undefined", "missing", "duration", "failed");
+        bodyRow.hasExactValues(tag.getName(), "1", "1", "0", "7", "7", "0", "0", "0", "0", "0", "000ms", "Passed");
+        bodyRow.hasExactCSSClasses("tagname", "", "", "", "", "", "", "", "", "", "", "duration", "passed");
     }
 
     @Test
-    public void generatePage_generatesTagsList() {
+    public void generatePage_generatesTagsList() throws Exception {
 
         // given
         setUpWithJson(SAMPLE_JSON);
@@ -75,7 +75,7 @@ public class TagReportPageIntegrationTest extends PageTest {
     }
 
     @Test
-    public void generatePage_generatesSampleStep() {
+    public void generatePage_generatesSampleStep() throws Exception{
 
         // given
         setUpWithJson(SAMPLE_JSON);

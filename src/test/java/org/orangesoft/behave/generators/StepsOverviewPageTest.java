@@ -17,7 +17,7 @@ import org.orangesoft.behave.util.Util;
 public class StepsOverviewPageTest extends PageTest {
 
     @Before
-    public void setUp() {
+    public void setUp() throws Exception {
         setUpWithJson(SAMPLE_JSON);
     }
 

@@ -86,13 +86,13 @@ public class ReportResult {
                 featuresReport.incScenarioFor(element.getElementStatus());
 
                 // all feature tags should be linked with scenario
-                for (Tag tag : feature.getTags()) {
+                for (String tag : feature.getTags()) {
                     processTag(tag, element, feature.getStatus());
                 }
             }
 
             // all element tags should be linked with element
-            for (Tag tag : element.getTags()) {
+            for (String tag : element.getTags()) {
                 processTag(tag, element, element.getElementStatus());
             }
 
@@ -109,9 +109,9 @@ public class ReportResult {
         featureCounter.incrementFor(feature.getStatus());
     }
 
-    private void processTag(Tag tag, Element element, Status status) {
+    private void processTag(String tag, Element element, Status status) {
 
-        TagObject tagObject = addTagObject(tag.getName());
+        TagObject tagObject = addTagObject(tag);
 
         // if this element was not added by feature tag, add it as element tag
         if (tagObject.addElement(element)) {

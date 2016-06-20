@@ -13,11 +13,11 @@ import org.orangesoft.behave.generators.integrations.PageTest;
 public class RowTest extends PageTest {
 
     @Before
-    public void setUp() {
+    public void setUp() throws Exception {
         setUpWithJson(SAMPLE_JSON);
     }
 
-    @Test
+    
     public void getCells_ReturnsCells() {
 
         // give

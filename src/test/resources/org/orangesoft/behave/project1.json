@@ -1,11 +1,7 @@
 [
     {
         "id":"account-holder-withdraws-cash",
-        "tags":[
-            {
-                "name":"@featureTag",
-                "line":1
-            }
+        "tags":["@featureTag"
         ],
         "description":"As a Account Holder\nI want to withdraw cash from an ATM\nSo that I can get money when the bank is closed",
         "name":"Account Holder withdraws cash & <MyPlace>",
@@ -59,19 +55,7 @@
             },
             {
                 "id":"account-holder-withdraws-cash;account-has-\u0027sufficient-funds\u0027;;2",
-                "tags":[
-                    {
-                        "name":"@fast",
-                        "line":12
-                    },
-                    {
-                        "name":"@featureTag",
-                        "line":1
-                    },
-                    {
-                        "name":"@checkout",
-                        "line":12
-                    }
+                "tags":["@fast","@featureTag","@checkout"
                 ],
                 "description":"",
                 "name":"Account has \u0027sufficient funds\u0027",
@@ -251,19 +235,7 @@
             },
             {
                 "id":"account-holder-withdraws-cash;account-has-\u0027sufficient-funds\u0027;;3",
-                "tags":[
-                    {
-                        "name":"@fast",
-                        "line":12
-                    },
-                    {
-                        "name":"@featureTag",
-                        "line":1
-                    },
-                    {
-                        "name":"@checkout",
-                        "line":12
-                    }
+                "tags":["@fast","@featureTag","@checkout"
                 ],
                 "description":"",
                 "name":"Account has \u0027sufficient funds\u0027",
@@ -439,19 +411,7 @@
             },
             {
                 "id":"account-holder-withdraws-cash;account-has-\u0027sufficient-funds\u0027;;4",
-                "tags":[
-                    {
-                        "name":"@fast",
-                        "line":12
-                    },
-                    {
-                        "name":"@featureTag",
-                        "line":1
-                    },
-                    {
-                        "name":"@checkout",
-                        "line":12
-                    }
+                "tags":["@fast","@featureTag","@checkout"
                 ],
                 "description":"",
                 "name":"Account has \u0027sufficient funds\u0027",
@@ -627,11 +587,7 @@
             },
             {
                 "id":"account-holder-withdraws-cash;account-has-sufficient-funds-again",
-                "tags":[
-                    {
-                        "name":"@featureTag_2",
-                        "line":28
-                    }
+                "tags":["@featureTag_2"
                 ],
                 "description":"",
                 "name":"Account has sufficient funds again",

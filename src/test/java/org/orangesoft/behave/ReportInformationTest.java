@@ -34,27 +34,27 @@ public class ReportInformationTest {
 
     @Test
     public void shouldReturnTotalNumberOfScenarios() {
-        assertThat(reportResult.getFeatureReport().getScenarios()).isEqualTo(10);
+        assertThat(reportResult.getFeatureReport().getScenarios()).isEqualTo(5);
     }
 
     @Test
     public void shouldReturnTotalNumberOfSteps() {
-        assertThat(reportResult.getFeatureReport().getSteps()).isEqualTo(98);
+        assertThat(reportResult.getFeatureReport().getSteps()).isEqualTo(49);
     }
 
     @Test
     public void shouldReturnTotalNumberPassingSteps() {
-        assertThat(reportResult.getFeatureReport().getPassedSteps()).isEqualTo(90);
+        assertThat(reportResult.getFeatureReport().getPassedSteps()).isEqualTo(45);
     }
 
     @Test
     public void shouldReturnTotalNumberFailingSteps() {
-        assertThat(reportResult.getFeatureReport().getFailedSteps()).isEqualTo(2);
+        assertThat(reportResult.getFeatureReport().getFailedSteps()).isEqualTo(1);
     }
 
     @Test
     public void shouldReturnTotalNumberSkippedSteps() {
-        assertThat(reportResult.getFeatureReport().getSkippedSteps()).isEqualTo(6);
+        assertThat(reportResult.getFeatureReport().getSkippedSteps()).isEqualTo(3);
     }
 
     @Test
@@ -69,7 +69,7 @@ public class ReportInformationTest {
 
     @Test
     public void shouldReturnTotalDurationAsString() {
-        assertThat(reportResult.getFeatureReport().getFormattedDurations()).isEqualTo("236ms");
+        assertThat(reportResult.getFeatureReport().getFormattedDurations()).isEqualTo("117ms");
     }
 
     @Test
@@ -79,17 +79,17 @@ public class ReportInformationTest {
 
     @Test
     public void shouldReturnTotalTags() {
-        assertThat(reportResult.getAllTags().size()).isEqualTo(5);
+        assertThat(reportResult.getAllTags().size()).isEqualTo(4);
     }
 
     @Test
     public void shouldReturnTotalTagScenarios() {
-        assertThat(reportResult.getTagReport().getScenarios()).isEqualTo(21);
+        assertThat(reportResult.getTagReport().getScenarios()).isEqualTo(11);
     }
 
     @Test
     public void shouldReturnTotalPassingTagScenarios() {
-        assertThat(reportResult.getTagReport().getPassedScenarios()).isEqualTo(21);
+        assertThat(reportResult.getTagReport().getPassedScenarios()).isEqualTo(11);
     }
 
     @Test
@@ -99,12 +99,12 @@ public class ReportInformationTest {
 
     @Test
     public void shouldReturnTotalTagSteps() {
-        assertThat(reportResult.getTagReport().getSteps()).isEqualTo(147);
+        assertThat(reportResult.getTagReport().getSteps()).isEqualTo(77);
     }
 
     @Test
     public void shouldReturnTotalTagPasses() {
-        assertThat(reportResult.getTagReport().getPassedSteps()).isEqualTo(147);
+        assertThat(reportResult.getTagReport().getPassedSteps()).isEqualTo(77);
     }
 
     @Test
@@ -124,11 +124,11 @@ public class ReportInformationTest {
 
     @Test
     public void shouldReturnTotalScenariosPassed() {
-        assertThat(reportResult.getFeatureReport().getPassedScenarios()).isEqualTo(8);
+        assertThat(reportResult.getFeatureReport().getPassedScenarios()).isEqualTo(4);
     }
 
     @Test
     public void shouldReturnTotalScenariosFailed() {
-        assertThat(reportResult.getFeatureReport().getFailedScenarios()).isEqualTo(2);
+        assertThat(reportResult.getFeatureReport().getFailedScenarios()).isEqualTo(1);
     }
 }

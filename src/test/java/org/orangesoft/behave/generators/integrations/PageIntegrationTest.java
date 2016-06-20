@@ -27,7 +27,7 @@ public class PageIntegrationTest extends PageTest {
         Locale.setDefault(Locale.UK);
     }
     @Test
-    public void generatePage_onDefaultConfiguration_generatesDefaultItemsInNaviBarfor() {
+    public void generatePage_onDefaultConfiguration_generatesDefaultItemsInNaviBarfor()  throws Exception{
 
         // given
         setUpWithJson(SAMPLE_JSON);
@@ -51,7 +51,7 @@ public class PageIntegrationTest extends PageTest {
     }
 
     @Test
-    public void generatePage_onJenkinsConfiguration_generatesAllItemsInNaviBarfor() {
+    public void generatePage_onJenkinsConfiguration_generatesAllItemsInNaviBarfor() throws Exception {
 
         // given
         setUpWithJson(SAMPLE_JSON);
@@ -82,7 +82,7 @@ public class PageIntegrationTest extends PageTest {
     }
 
     @Test
-    public void generatePage_onDefaultConfiguration_generatesSummaryTable() {
+    public void generatePage_onDefaultConfiguration_generatesSummaryTable() throws Exception {
 
         // given
         setUpWithJson(SAMPLE_JSON);
@@ -103,7 +103,7 @@ public class PageIntegrationTest extends PageTest {
     }
 
     @Test
-    public void generatePage_onJenkinsConfiguration_generatesSummaryTableWithBuildNumber() {
+    public void generatePage_onJenkinsConfiguration_generatesSummaryTableWithBuildNumber() throws Exception {
 
         // given
         setUpWithJson(SAMPLE_JSON);
@@ -128,7 +128,7 @@ public class PageIntegrationTest extends PageTest {
     }
 
     @Test
-    public void generatePage_generatesFooter() {
+    public void generatePage_generatesFooter()  throws Exception{
 
         // given
         setUpWithJson(SAMPLE_JSON);

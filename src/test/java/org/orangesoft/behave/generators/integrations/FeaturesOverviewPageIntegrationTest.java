@@ -17,7 +17,7 @@ import org.orangesoft.behave.generators.integrations.helpers.WebAssertion;
 public class FeaturesOverviewPageIntegrationTest extends PageTest {
 
     @Test
-    public void generatePage_generatesTitle() {
+    public void generatePage_generatesTitle() throws Exception {
 
         // given
         setUpWithJson(SAMPLE_JSON);
@@ -38,7 +38,7 @@ public class FeaturesOverviewPageIntegrationTest extends PageTest {
     }
 
     @Test
-    public void generatePage_generatesLead() {
+    public void generatePage_generatesLead() throws Exception  {
 
         // given
         setUpWithJson(SAMPLE_JSON);
@@ -56,7 +56,7 @@ public class FeaturesOverviewPageIntegrationTest extends PageTest {
     }
 
     @Test
-    public void generatePage_generatesCharts() {
+    public void generatePage_generatesCharts()  throws Exception {
 
         // given
         setUpWithJson(SAMPLE_JSON);
@@ -72,7 +72,7 @@ public class FeaturesOverviewPageIntegrationTest extends PageTest {
     }
 
     @Test
-    public void generatePage_generatesStatsTableHeader() {
+    public void generatePage_generatesStatsTableHeader() throws Exception {
 
         // given
         setUpWithJson(SAMPLE_JSON);
@@ -96,7 +96,7 @@ public class FeaturesOverviewPageIntegrationTest extends PageTest {
     }
 
     @Test
-    public void generatePage_generatesStatsTableBody() {
+    public void generatePage_generatesStatsTableBody() throws Exception {
 
         // given
         setUpWithJson(SAMPLE_JSON);
@@ -110,23 +110,18 @@ public class FeaturesOverviewPageIntegrationTest extends PageTest {
         DocumentAssertion document = documentFrom(page.getWebPage());
         TableRowAssertion[] bodyRows = document.getSummary().getTableStats().getBodyRows();
 
-        assertThat(bodyRows).hasSize(2);
+        assertThat(bodyRows).hasSize(1);
 
         TableRowAssertion firstRow = bodyRows[0];
-        firstRow.hasExactValues("1st feature", "1", "1", "0", "11", "8", "0", "0", "2", "1", "0", "1m 39s 353ms", "Passed");
-        firstRow.hasExactCSSClasses("tagname", "", "", "", "", "", "", "", "pending", "undefined", "", "duration", "passed");
-        firstRow.hasExactDataValues("", "", "", "", "", "", "", "", "", "", "", "99353122889", "");
-        firstRow.getReportLink().hasLabelAndAddress("1st feature", "net-masterthought-example-s--ATM-local-feature.html");
+        firstRow.hasExactValues("Encrypt Cloud Manager functional account passwords and add them to the CM dynamodb settings table", "1", "1", "0", "7", "7", "0", "0", "0", "0", "0", "000ms", "Passed");
+        firstRow.hasExactCSSClasses("tagname", "", "", "", "", "", "", "", "", "", "", "duration", "passed");
+        firstRow.hasExactDataValues("", "", "", "", "", "", "", "", "", "", "", "0", "");
+        firstRow.getReportLink().hasLabelAndAddress("Encrypt Cloud Manager functional account passwords and add them to the CM dynamodb settings table", "security-aws-pw-encrypt-pw-encrypt-feature-2.html");
 
-        TableRowAssertion secondRow = bodyRows[1];
-        secondRow.hasExactValues("Second feature", "1", "0", "1", "9", "4", "1", "3", "0", "0", "1", "002ms", "Failed");
-        secondRow.hasExactCSSClasses("tagname", "", "", "failed", "", "", "failed", "skipped", "", "", "missing", "duration", "failed");
-        secondRow.hasExactDataValues("", "", "", "", "", "", "", "", "", "", "", "2050000", "");
-        secondRow.getReportLink().hasLabelAndAddress("Second feature", "net-masterthought-example-ATMK-feature.html");
     }
 
     @Test
-    public void generatePage_generatesStatsTableFooter() {
+    public void generatePage_generatesStatsTableFooter() throws Exception {
 
         // given
         setUpWithJson(SAMPLE_JSON);
@@ -140,11 +135,11 @@ public class FeaturesOverviewPageIntegrationTest extends PageTest {
         DocumentAssertion document = documentFrom(page.getWebPage());
         TableRowAssertion footerCells = document.getSummary().getTableStats().getFooterRow();
 
-        footerCells.hasExactValues("2", "2", "1", "1", "20", "12", "1", "3", "2", "1", "1", "1m 39s 355ms", "Totals");
+        footerCells.hasExactValues("1", "1", "1", "0", "7", "7", "0", "0", "0", "0", "0", "000ms", "Totals");
     }
 
     @Test
-    public void generatePage_onEmptyJsons_generatesProperMessage() {
+    public void generatePage_onEmptyJsons_generatesProperMessage()  throws Exception {
 
         // given
         setUpWithJson(EMPTY_JSON);

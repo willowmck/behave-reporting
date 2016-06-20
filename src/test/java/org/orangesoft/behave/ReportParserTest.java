@@ -2,7 +2,6 @@ package org.orangesoft.behave;
 
 import static org.hamcrest.core.StringContains.containsString;
 
-import java.io.IOException;
 import java.util.List;
 
 import org.junit.Rule;
@@ -21,7 +20,7 @@ public class ReportParserTest extends ReportGenerator {
     public ExpectedException thrown = ExpectedException.none();
 
     @Test
-    public void parseJsonResults_ReturnsParsedFeatureFiles() throws IOException {
+    public void parseJsonResults_ReturnsParsedFeatureFiles() throws Exception {
 
         // given
         setUpWithJson(SAMPLE_JSON, SIMPLE_JSON);
@@ -30,11 +29,11 @@ public class ReportParserTest extends ReportGenerator {
         List<Feature> testFeatures = new ReportParser(configuration).parseJsonResults(jsonReports);
 
         // then
-        assertThat(testFeatures).hasSize(3);
+        assertThat(testFeatures).hasSize(2);
     }
 
     @Test
-    public void parseJsonResults_OnInvalidJSON_SkipFiles() throws IOException {
+    public void parseJsonResults_OnInvalidJSON_SkipFiles() throws Exception {
 
         // given
         setUpWithJson(INVALID_JSON, SIMPLE_JSON);
@@ -47,7 +46,7 @@ public class ReportParserTest extends ReportGenerator {
     }
 
     @Test
-    public void parseJsonResults_OnEmptyJSON_SkipFiles() throws IOException {
+    public void parseJsonResults_OnEmptyJSON_SkipFiles() throws Exception {
 
         // given
         setUpWithJson(EMPTY_JSON);
@@ -60,7 +59,7 @@ public class ReportParserTest extends ReportGenerator {
     }
 
     @Test
-    public void parseJsonResults_OnInvalidReport_SkipsFiles() throws IOException {
+    public void parseJsonResults_OnInvalidReport_SkipsFiles() throws Exception {
 
         // given
         setUpWithJson(INVALID_REPORT_JSON, SIMPLE_JSON);
@@ -73,7 +72,7 @@ public class ReportParserTest extends ReportGenerator {
     }
 
     @Test
-    public void parseJsonResultsFails_OnNoExistingFile_ThrowsException() throws IOException {
+    public void parseJsonResultsFails_OnNoExistingFile_ThrowsException() throws Exception {
 
         // given
         final String invalidFile = "?no-existing%file.json";

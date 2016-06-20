@@ -17,7 +17,7 @@ import org.orangesoft.behave.generators.integrations.helpers.WebAssertion;
 public class TagsOverviewPageIntegrationTest extends PageTest {
 
     @Test
-    public void generatePage_generatesTitle() {
+    public void generatePage_generatesTitle() throws Exception {
 
         // given
         setUpWithJson(SAMPLE_JSON);
@@ -36,7 +36,7 @@ public class TagsOverviewPageIntegrationTest extends PageTest {
     }
 
     @Test
-    public void generatePage_generatesLead() {
+    public void generatePage_generatesLead() throws Exception {
 
         // given
         setUpWithJson(SAMPLE_JSON);
@@ -54,7 +54,7 @@ public class TagsOverviewPageIntegrationTest extends PageTest {
     }
 
     @Test
-    public void generatePage_generatesCharts() {
+    public void generatePage_generatesCharts() throws Exception {
 
         // given
         setUpWithJson(SAMPLE_JSON);
@@ -70,7 +70,7 @@ public class TagsOverviewPageIntegrationTest extends PageTest {
     }
 
     @Test
-    public void generatePage_generatesStatsTableHeader() {
+    public void generatePage_generatesStatsTableHeader() throws Exception {
 
         // given
         setUpWithJson(SAMPLE_JSON);
@@ -94,7 +94,7 @@ public class TagsOverviewPageIntegrationTest extends PageTest {
     }
 
     @Test
-    public void generatePage_generatesStatsTableBody() {
+    public void generatePage_generatesStatsTableBody() throws Exception {
 
         // given
         setUpWithJson(SAMPLE_JSON);
@@ -108,29 +108,23 @@ public class TagsOverviewPageIntegrationTest extends PageTest {
         DocumentAssertion document = documentFrom(page.getWebPage());
         TableRowAssertion[] bodyRows = document.getSummary().getTableStats().getBodyRows();
 
-        assertThat(bodyRows).hasSize(3);
+        assertThat(bodyRows).hasSize(2);
 
         TableRowAssertion firstRow = bodyRows[0];
-        firstRow.hasExactValues("@checkout", "2", "1", "1", "16", "8", "1", "3", "2", "1", "1", "231ms", "Failed");
-        firstRow.hasExactCSSClasses("tagname", "", "", "failed", "", "", "failed", "skipped", "pending", "undefined", "missing", "duration", "failed");
-        firstRow.hasExactDataValues("", "", "", "", "", "", "", "", "", "", "", "231054778", "");
+        firstRow.hasExactValues("@checkout", "1", "1", "0", "7", "7", "0", "0", "0", "0", "0", "000ms", "Passed");
+        firstRow.hasExactCSSClasses("tagname", "", "", "", "", "", "", "", "", "", "", "duration", "passed");
+        firstRow.hasExactDataValues("", "", "", "", "", "", "", "", "", "", "", "0", "");
         firstRow.getReportLink().hasLabelAndAddress("@checkout", "checkout.html");
 
         TableRowAssertion secondRow = bodyRows[1];
-        secondRow.hasExactValues("@fast", "1", "1", "0", "7", "4", "0", "0", "2", "1", "0", "229ms", "Passed");
-        secondRow.hasExactCSSClasses("tagname", "", "", "", "", "", "", "", "pending", "undefined", "", "duration", "passed");
-        secondRow.hasExactDataValues("", "", "", "", "", "", "", "", "", "", "", "229004778", "");
-        secondRow.getReportLink().hasLabelAndAddress("@fast", "fast.html");
-
-        TableRowAssertion lastRow = bodyRows[2];
-        lastRow.hasExactValues("@featureTag", "1", "1", "0", "7", "4", "0", "0", "2", "1", "0", "229ms", "Passed");
-        lastRow.hasExactCSSClasses("tagname", "", "", "", "", "", "", "", "pending", "undefined", "", "duration", "passed");
-        lastRow.hasExactDataValues("", "", "", "", "", "", "", "", "", "", "", "229004778", "");
-        lastRow.getReportLink().hasLabelAndAddress("@featureTag", "featureTag.html");
+        secondRow.hasExactValues("@slow", "1", "1", "0", "7", "7", "0", "0", "0", "0", "0", "000ms", "Passed");
+        secondRow.hasExactCSSClasses("tagname", "", "", "", "", "", "", "", "", "", "", "duration", "passed");
+        secondRow.hasExactDataValues("", "", "", "", "", "", "", "", "", "", "", "0", "");
+        secondRow.getReportLink().hasLabelAndAddress("@slow", "slow.html");
     }
 
     @Test
-    public void generatePage_generatesStatsTableFooter() {
+    public void generatePage_generatesStatsTableFooter() throws Exception {
 
         // given
         setUpWithJson(SAMPLE_JSON);
@@ -143,11 +137,11 @@ public class TagsOverviewPageIntegrationTest extends PageTest {
         // then
         DocumentAssertion document = documentFrom(page.getWebPage());
         TableRowAssertion footerCells = document.getSummary().getTableStats().getFooterRow();
-        footerCells.hasExactValues("3", "4", "3", "1", "30", "16", "1", "3", "6", "3", "1", "689ms", "Totals");
+        footerCells.hasExactValues("2", "2", "2", "0", "14", "14", "0", "0", "0", "0", "0", "000ms", "Totals");
     }
 
     @Test
-    public void generatePage_onEmptyJsons_generatesProperMessage() {
+    public void generatePage_onEmptyJsons_generatesProperMessage() throws Exception {
 
         // given
         setUpWithJson(EMPTY_JSON);

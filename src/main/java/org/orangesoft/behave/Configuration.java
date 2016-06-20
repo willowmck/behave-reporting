@@ -24,6 +24,7 @@ public final class Configuration {
     public Configuration(File reportOutputDirectory, String projectName) {
         this.reportDirectory = reportOutputDirectory;
         this.projectName = projectName;
+        System.out.println("Creating Configuration object with reportDirectory = " + reportDirectory.getAbsolutePath() + " and projectName = " + projectName);
     }
 
     public void setStatusFlags(boolean failsIfSkipped, boolean failsIFPending, boolean failsIfUndefined,

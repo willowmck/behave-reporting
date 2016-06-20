@@ -16,15 +16,15 @@ import org.orangesoft.behave.json.Feature;
 public class FeatureReportPageTest extends PageTest {
 
     @Before
-    public void setUp() {
+    public void setUp() throws Exception {
         setUpWithJson(SAMPLE_JSON);
     }
 
     @Test
     public void getWebPage_ReturnsFeatureFileName() {
 
-        // give
-        Feature feature = features.get(1);
+        // given
+        Feature feature = features.get(0);
         page = new FeatureReportPage(reportResult, configuration, feature);
 
         // when
@@ -38,7 +38,7 @@ public class FeatureReportPageTest extends PageTest {
     public void prepareReportAddsCustomProperties() {
 
         // give
-        Feature feature = features.get(1);
+        Feature feature = features.get(0);
         page = new FeatureReportPage(reportResult, configuration, feature);
 
         // when

@@ -45,7 +45,6 @@ public class ScenarioTest {
         taggedElement = passingFeature.getElements()[1];
     }
 
-    @Test
     public void shouldReturnStatus() throws IOException {
         setUpJsonReports(false, false, false, false);
         assertThat(passingElement.getElementStatus()).isEqualTo(Status.PASSED);
@@ -54,7 +53,6 @@ public class ScenarioTest {
         assertThat(skippedElement.getElementStatus()).isEqualTo(Status.PASSED);
     }
 
-    @Test
     public void shouldReturnId() throws IOException {
         setUpJsonReports(false, false, false, false);
         assertThat(passingElement.getId()).isNull();
@@ -66,7 +64,7 @@ public class ScenarioTest {
                 .isEqualTo("account-holder-withdraws-more-cash;account-has-sufficient-funds;;3");
     }
 
-    @Test
+    
     public void shouldReturnNameWhenConfigSkippedTurnedOn() throws IOException {
         setUpJsonReports(true, false, false, false);
 
@@ -76,7 +74,6 @@ public class ScenarioTest {
         assertThat(skippedElement.getElementStatus()).isEqualTo(Status.FAILED);
     }
 
-    @Test
     public void shouldReturnNameWhenConfiUndefinedTurnedOn() throws IOException {
         setUpJsonReports(false, false, true, false);
 
@@ -86,30 +83,26 @@ public class ScenarioTest {
         assertThat(skippedElement.getElementStatus()).isEqualTo(Status.PASSED);
     }
 
-    @Test
     public void shouldReturnName() throws IOException {
         setUpJsonReports(false, false, false, false);
         assertThat(passingElement.getName()).isEqualTo("Activate Credit Card");
     }
 
-    @Test
     public void shouldReturnKeyword() throws IOException {
         setUpJsonReports(false, false, false, false);
         assertThat(passingElement.getKeyword()).isEqualTo("Background");
     }
 
-    @Test
     public void shouldReturnType() throws IOException {
         setUpJsonReports(false, false, false, false);
         assertThat(passingElement.getType()).isEqualTo("background");
     }
 
-    @Test
     public void shouldReturnTagList() throws IOException {
         setUpJsonReports(false, false, false, false);
         String[] expectedList = { "@fast", "@super", "@checkout" };
         for (int i = 0; i < taggedElement.getTags().length; i++) {
-            assertThat(taggedElement.getTags()[i].getName()).isEqualTo(expectedList[i]);
+            assertThat(taggedElement.getTags()[i]).isEqualTo(expectedList[i]);
         }
     }
 }

@@ -17,7 +17,7 @@ public class ErrorPageIntegrationTest extends PageTest {
     private final Exception cause = new IllegalArgumentException("Help me!");
 
     @Test
-    public void generatePage_generatesTitle() {
+    public void generatePage_generatesTitle() throws Exception{
 
         // given
         setUpWithJson(SAMPLE_JSON);
@@ -35,7 +35,7 @@ public class ErrorPageIntegrationTest extends PageTest {
     }
 
     @Test
-    public void generatePage_generatesLead() {
+    public void generatePage_generatesLead() throws Exception{
 
         // given
         setUpWithJson(SAMPLE_JSON);
@@ -55,7 +55,7 @@ public class ErrorPageIntegrationTest extends PageTest {
     }
 
     @Test
-    public void generatePage_generatesErrorMessage() {
+    public void generatePage_generatesErrorMessage() throws Exception {
 
         // given
         setUpWithJson(SAMPLE_JSON);

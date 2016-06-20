@@ -50,16 +50,21 @@ public class ReportParser {
      */
     public List<Feature> parseJsonResults(List<String> jsonReportFiles) {
         List<Feature> featureResults = new ArrayList<>();
-
+        System.out.println("[parseJsonResults] : created featureResults array");
+        
         for (int i = 0; i < jsonReportFiles.size(); i++) {
             String jsonFile = jsonReportFiles.get(i);
+            System.out.println("[parseJsonResults] : jsonFile = " + jsonFile);
             Feature[] features = parseForFeature(jsonFile);
+            System.out.println("[parseJsonResults] : created features array with  " + features.length + " elements");
             if (ArrayUtils.isEmpty(features)) {
                 LOG.info("File '{}' does not contain features", jsonFile);
             } else {
                 LOG.info("File '{}' contain {} features", jsonFile, features.length);
                 setMetadata(features, jsonFile, i);
+                System.out.println("[parseJsonResults] : setMetadata");
                 featureResults.addAll(Arrays.asList(features));
+                System.out.println("[parseJsonResults] : added all features to results");
             }
         }
 

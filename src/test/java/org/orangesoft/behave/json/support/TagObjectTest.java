@@ -18,7 +18,7 @@ import org.orangesoft.behave.json.Element;
 public class TagObjectTest extends PageTest {
 
     @Before
-    public void setUp() {
+    public void setUp()  throws Exception{
         setUpWithJson(SAMPLE_JSON);
     }
 
@@ -91,7 +91,7 @@ public class TagObjectTest extends PageTest {
         }
 
         // then
-        assertThat(tag.getScenarios()).isEqualTo(elements.length - 1);
+        assertThat(tag.getScenarios()).isEqualTo(elements.length);
     }
 
     @Test
@@ -107,7 +107,7 @@ public class TagObjectTest extends PageTest {
         }
 
         // then
-        assertThat(tag.getPassedScenarios()).isEqualTo(2);
+        assertThat(tag.getPassedScenarios()).isEqualTo(1);
     }
 
     @Test
@@ -139,8 +139,8 @@ public class TagObjectTest extends PageTest {
         }
 
         // then
-        assertThat(tag.getDurations()).isEqualTo(99353122889L);
-        assertThat(tag.getFormattedDurations()).isEqualTo("1m 39s 353ms");
+        assertThat(tag.getDurations()).isEqualTo(0L);
+        assertThat(tag.getFormattedDurations()).isEqualTo("000ms");
     }
 
     @Test
@@ -156,7 +156,7 @@ public class TagObjectTest extends PageTest {
         }
 
         // then
-        assertThat(tag.getSteps()).isEqualTo(11);
+        assertThat(tag.getSteps()).isEqualTo(7);
     }
 
     @Test
@@ -172,9 +172,9 @@ public class TagObjectTest extends PageTest {
         }
 
         // then
-        assertThat(tag.getNumberOfStatus(Status.PASSED)).isEqualTo(8);
+        assertThat(tag.getNumberOfStatus(Status.PASSED)).isEqualTo(7);
         assertThat(tag.getNumberOfStatus(Status.FAILED)).isEqualTo(0);
-        assertThat(tag.getNumberOfStatus(Status.PENDING)).isEqualTo(2);
+        assertThat(tag.getNumberOfStatus(Status.PENDING)).isEqualTo(0);
         assertThat(tag.getNumberOfStatus(Status.MISSING)).isEqualTo(0);
     }
 

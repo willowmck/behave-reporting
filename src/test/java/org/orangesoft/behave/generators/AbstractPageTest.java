@@ -18,7 +18,7 @@ import org.orangesoft.behave.generators.integrations.PageTest;
 public class AbstractPageTest extends PageTest {
 
     @Before
-    public void setUp() {
+    public void setUp() throws Exception {
         setUpWithJson(SAMPLE_JSON);
     }
 
@@ -37,7 +37,7 @@ public class AbstractPageTest extends PageTest {
     }
 
     @Test
-    public void buildProperties_ReturnsProperties() {
+    public void buildProperties_ReturnsProperties() throws Exception {
 
         // give
         page = new FeaturesOverviewPage(reportResult, configuration);

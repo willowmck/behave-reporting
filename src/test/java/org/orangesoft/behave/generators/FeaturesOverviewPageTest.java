@@ -16,7 +16,7 @@ import org.orangesoft.behave.generators.integrations.PageTest;
 public class FeaturesOverviewPageTest extends PageTest {
 
     @Before
-    public void setUp() {
+    public void setUp() throws Exception {
         setUpWithJson(SAMPLE_JSON);
     }
 

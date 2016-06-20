@@ -16,7 +16,7 @@ import org.orangesoft.behave.json.support.TagObject;
 public class TagReportPageTest extends PageTest {
 
     @Before
-    public void setUp() {
+    public void setUp() throws Exception {
         setUpWithJson(SAMPLE_JSON);
     }
 

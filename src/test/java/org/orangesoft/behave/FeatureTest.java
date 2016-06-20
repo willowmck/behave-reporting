@@ -49,7 +49,7 @@ public class FeatureTest {
     @Test
     public void shouldListTheTags() {
         String name = "@featureTag";
-        assertThat(passingFeature.getTags()[0].getName()).isEqualTo(name);
+        assertThat(passingFeature.getTags()[0]).isEqualTo(name);
     }
 
     @Test

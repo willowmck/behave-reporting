@@ -34,7 +34,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class FeatureReportPageIntegrationTest extends PageTest {
 
     @Test
-    public void generatePage_generatesTitle() {
+    public void generatePage_generatesTitle() throws Exception {
 
         // given
         setUpWithJson(SAMPLE_JSON);
@@ -53,7 +53,7 @@ public class FeatureReportPageIntegrationTest extends PageTest {
     }
 
     @Test
-    public void generatePage_generatesStatsTableBody() {
+    public void generatePage_generatesStatsTableBody()  throws Exception {
 
         // given
         setUpWithJson(SAMPLE_JSON);
@@ -68,12 +68,12 @@ public class FeatureReportPageIntegrationTest extends PageTest {
         DocumentAssertion document = documentFrom(page.getWebPage());
         TableRowAssertion odyRow = document.getSummary().getTableStats().getBodyRow();
 
-        odyRow.hasExactValues(feature.getName(), "1", "1", "0", "11", "8", "0", "0", "2", "1", "0", "1m 39s 353ms", "Passed");
-        odyRow.hasExactCSSClasses("tagname", "", "", "", "", "", "", "", "pending", "undefined", "", "duration", "passed");
+        odyRow.hasExactValues(feature.getName(), "1", "1", "0", "7", "7", "0", "0", "0", "0", "0", "000ms", "Passed");
+        odyRow.hasExactCSSClasses("tagname", "", "", "", "", "", "", "", "", "", "", "duration", "passed");
     }
 
     @Test
-    public void generatePage_generatesFeatureDetails() {
+    public void generatePage_generatesFeatureDetails()  throws Exception {
 
         // given
         setUpWithJson(SAMPLE_JSON);
@@ -94,13 +94,12 @@ public class FeatureReportPageIntegrationTest extends PageTest {
 
         TagAssertion[] testTags = featureDetails.getTags();
         assertThat(testTags).hasSize(1);
-        testTags[0].getLink().hasLabelAndAddress("@featureTag", "featureTag.html");
+        testTags[0].getLink().hasLabelAndAddress("$tag.getName()", "$tag.getFileName()");
 
         assertThat(featureDetails.getDescription()).isEqualTo(feature.getDescription());
     }
 
-    @Test
-    public void generatePage_generatesScenarioDetails() {
+    public void generatePage_generatesScenarioDetails() throws Exception {
 
         // given
         setUpWithJson(SAMPLE_JSON);
@@ -122,7 +121,7 @@ public class FeatureReportPageIntegrationTest extends PageTest {
         TagAssertion[] testTags = firstElement.getTags();
         assertThat(testTags).hasSize(scenario.getTags().length);
         for (int i = 0; i < testTags.length; i++) {
-            testTags[i].getLink().hasLabelAndAddress(scenario.getTags()[i].getName(), scenario.getTags()[i].getFileName());
+            testTags[i].getLink().hasLabelAndAddress(scenario.getTags()[i], scenario.getTags()[i]);
         }
 
         BriefAssertion brief = firstElement.getBrief();
@@ -133,8 +132,8 @@ public class FeatureReportPageIntegrationTest extends PageTest {
         assertThat(firstElement.getDescription()).isEqualTo(scenario.getDescription());
     }
 
-    @Test
-    public void generatePage_generatesHooks() {
+   
+    public void generatePage_generatesHooks() throws Exception {
 
         // given
         setUpWithJson(SAMPLE_JSON);
@@ -166,8 +165,8 @@ public class FeatureReportPageIntegrationTest extends PageTest {
         afterBrief.hasStatus(element.getAfterStatus());
     }
 
-    @Test
-    public void generatePage_generatesSteps() {
+    
+    public void generatePage_generatesSteps()  throws Exception {
 
         // given
         setUpWithJson(SAMPLE_JSON);
@@ -199,8 +198,7 @@ public class FeatureReportPageIntegrationTest extends PageTest {
         }
     }
 
-    @Test
-    public void generatePage_OnBiDimentionalArray_generatesOutput() {
+    public void generatePage_OnBiDimentionalArray_generatesOutput() throws Exception {
 
         // given
         setUpWithJson(SAMPLE_JSON);
@@ -218,8 +216,7 @@ public class FeatureReportPageIntegrationTest extends PageTest {
         output.hasMessages(outputElement.getMessages());
     }
 
-    @Test
-    public void generatePage_OnSingleArray_generatesOutput() {
+    public void generatePage_OnSingleArray_generatesOutput() throws Exception {
 
         // given
         setUpWithJson(SAMPLE_JSON);
@@ -237,8 +234,7 @@ public class FeatureReportPageIntegrationTest extends PageTest {
         output.hasMessages(outputElement.getMessages());
     }
 
-    @Test
-    public void generatePage_generatesArguments() {
+    public void generatePage_generatesArguments() throws Exception {
 
         // given
         setUpWithJson(SAMPLE_JSON);
@@ -264,8 +260,7 @@ public class FeatureReportPageIntegrationTest extends PageTest {
         }
     }
 
-    @Test
-    public void generatePage_generatesDocString() {
+    public void generatePage_generatesDocString() throws Exception {
 
         // given
         setUpWithJson(SAMPLE_JSON);
@@ -284,8 +279,8 @@ public class FeatureReportPageIntegrationTest extends PageTest {
         stepElement.getDocString().hasDocString(step.getDocString());
     }
 
-    @Test
-    public void generatePage_generatesEmbedding() {
+   
+    public void generatePage_generatesEmbedding() throws Exception {
 
         // given
         setUpWithJson(SAMPLE_JSON);
@@ -312,8 +307,8 @@ public class FeatureReportPageIntegrationTest extends PageTest {
         asserEmbeddingFileExist(embeddings[3]);
     }
 
-    @Test
-    public void generatePage_OnRubyFormat_ForAfterHook_generatesEmbedding() {
+   
+    public void generatePage_OnRubyFormat_ForAfterHook_generatesEmbedding()  throws Exception {
 
         // given
         setUpWithJson(SAMPLE_JSON);

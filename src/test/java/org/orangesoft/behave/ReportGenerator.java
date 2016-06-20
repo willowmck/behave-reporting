@@ -17,7 +17,7 @@ public abstract class ReportGenerator {
 
     private final static String JSON_DIRECTORY = "json/";
 
-    protected static final String SAMPLE_JSON = "sample.json";
+    protected static final String SAMPLE_JSON = "behave_sample.json";
     protected static final String SIMPLE_JSON = "simple.json";
     protected static final String EMPTY_JSON = "empty.json";
     protected static final String INVALID_JSON = "invalid.json";
@@ -43,34 +43,45 @@ public abstract class ReportGenerator {
         }
     }
 
-    protected void setUpWithJson(String... jsonFiles) {
-        for (String jsonFile : jsonFiles)
+    protected void setUpWithJson(String... jsonFiles) throws Exception {
+        for (String jsonFile : jsonFiles) {
+            System.out.println("Adding report " + jsonFile);
             addReport(jsonFile);
+            System.out.println("Completed adding report");
+        }
 
         configuration = new Configuration(reportDirectory, projectName);
 
         createEmbeddingsDirectory();
+        System.out.println("Done creating embeddings directory");
         createReportBuilder();
+        System.out.println("Done creating reports builder");
     }
 
-    private void addReport(String jsonReport) {
-        try {
+    private void addReport(String jsonReport)  throws Exception{
+       // try {
             URL path = ReportGenerator.class.getClassLoader().getResource(JSON_DIRECTORY + jsonReport);
             jsonReports.add(new File(path.toURI()).getAbsolutePath());
-        } catch (URISyntaxException e) {
-            throw new ValidationException(e);
-        }
+        //} catch (URISyntaxException e) {
+         //   throw new ValidationException(e);
+        //}
     }
 
-    private void createReportBuilder() {
+    private void createReportBuilder() throws Exception {
         ReportParser reportParser = new ReportParser(configuration);
+        System.out.println("Created report parser");
 
         List<Feature> featuresFromJson = reportParser.parseJsonResults(jsonReports);
+        System.out.println("Retrieved features from report parser");
         reportResult = new ReportResult(featuresFromJson);
+        System.out.println("Got report result");
 
         features = reportResult.getAllFeatures();
+        System.out.println("Retrieved all features");
         tags = reportResult.getAllTags();
+        System.out.println("Retrieved all tags");
         steps = reportResult.getAllSteps();
+        System.out.println("Retrieved all steps");
     }
 
     private void createEmbeddingsDirectory() {
