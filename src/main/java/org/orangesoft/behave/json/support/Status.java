@@ -1,7 +1,7 @@
 package org.orangesoft.behave.json.support;
 
 /**
- * Defines all possible statuses provided by cucumber-jvm library.
+ * Defines all possible statuses provided by behave library.
  * 
  * @author Damian Szczepanik (damianszczepanik@github)
  */

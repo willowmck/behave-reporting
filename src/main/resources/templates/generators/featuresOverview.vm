@@ -68,7 +68,7 @@
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
       #if($all_features.isEmpty())
-        <p>You have no features in your cucumber report</p>
+        <p>You have no features in your behave report</p>
       #else
         #includeStatsTable("Feature", $parallel, $all_features, $report_summary)
       #end

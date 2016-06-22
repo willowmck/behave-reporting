@@ -45,7 +45,7 @@
 
 #macro(includeUnknownEmbedding, $embedding, $index)
   #set($Quote = '"')
-  #includeExpandableEmbedding($embedding, $embedding.getMimeType(), "File the <a href=${Quote}https://github.com/damianszczepanik/cucumber-reporting/issues${Quote}>bug</a> so support for this mimetype can be added.", $index)
+  #includeExpandableEmbedding($embedding, $embedding.getMimeType(), "File the <a href=${Quote}https://github.com/willowmck/behave-reporting/issues${Quote}>bug</a> so support for this mimetype can be added.", $index)
 #end
 
 

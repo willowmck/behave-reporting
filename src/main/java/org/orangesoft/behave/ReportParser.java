@@ -82,7 +82,7 @@ public class ReportParser {
         try (Reader reader = new InputStreamReader(new FileInputStream(jsonFile), StandardCharsets.UTF_8)) {
             return mapper.readValue(reader, Feature[].class);
         } catch (JsonMappingException e) {
-            LOG.info("File '{}' is not proper Cucumber-JVM report", jsonFile, e);
+            LOG.info("File '{}' is not proper Behave report", jsonFile, e);
             return new Feature[0];
         } catch (IOException e) {
             // IO problem - stop generating and re-throw the problem

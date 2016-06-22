@@ -18,7 +18,7 @@
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
       #if($all_features.isEmpty())
-        <p>You have no failed scenarios in your cucumber report</p>
+        <p>You have no failed scenarios in your behave report</p>
       #else
         <div class="elements">
           #foreach($feature in $all_features)

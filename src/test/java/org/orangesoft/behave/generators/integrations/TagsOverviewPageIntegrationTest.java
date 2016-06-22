@@ -153,6 +153,6 @@ public class TagsOverviewPageIntegrationTest extends PageTest {
         // then
         DocumentAssertion document = documentFrom(page.getWebPage());
         SummaryAssertion summary = document.getSummary();
-        assertThat(summary.getEmptyReportMessage()).isEqualTo("You have no tags in your cucumber report");
+        assertThat(summary.getEmptyReportMessage()).isEqualTo("You have no tags in your behave report");
     }
 }

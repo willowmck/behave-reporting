@@ -133,6 +133,6 @@ public class StepsOverviewPageIntegrationTest extends PageTest {
         // then
         DocumentAssertion document = documentFrom(page.getWebPage());
         SummaryAssertion summary = document.getSummary();
-        assertThat(summary.getEmptyReportMessage()).isEqualTo("You have no features in your cucumber report");
+        assertThat(summary.getEmptyReportMessage()).isEqualTo("You have no features in your behave report");
     }
 }

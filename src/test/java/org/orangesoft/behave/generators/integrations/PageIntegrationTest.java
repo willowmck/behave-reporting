@@ -143,8 +143,8 @@ public class PageIntegrationTest extends PageTest {
         LinkAssertion[] footerLinks = extractFooterLinks(footer);
 
         assertThat(footerLinks).hasSize(2);
-        footerLinks[0].hasLabelAndAddress("Jenkins Plugin", "https://github.com/jenkinsci/cucumber-reports-plugin");
-        footerLinks[1].hasLabelAndAddress("Cucumber-JVM Reports", "https://github.com/damianszczepanik/cucumber-reporting");
+        footerLinks[0].hasLabelAndAddress("Jenkins Plugin", "https://github.com/willowmck/behave-reports-plugin");
+        footerLinks[1].hasLabelAndAddress("Behave Reports", "https://github.com/willowmck/behave-reporting");
     }
 
     private WebAssertion extractFooter(WebAssertion document) {

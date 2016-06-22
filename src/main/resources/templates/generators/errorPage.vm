@@ -25,7 +25,7 @@
       <div class="message">
         <pre>$output_message</pre>
       </div>
-      <div>Trying to generate report from following files. Make sure they are valid cucumber report files:</div>
+      <div>Trying to generate report from following files. Make sure they are valid behave report files:</div>
       <div class="error-files">
         <pre>
           #foreach($file in $json_files) $file

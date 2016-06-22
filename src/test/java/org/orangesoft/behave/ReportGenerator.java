@@ -26,7 +26,7 @@ public abstract class ReportGenerator {
     private final File reportDirectory;
 
     protected Configuration configuration;
-    private String projectName = "test cucumberProject";
+    private String projectName = "test behaveProject";
     protected final List<String> jsonReports = new ArrayList<>();
     protected ReportResult reportResult;
 

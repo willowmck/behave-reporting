@@ -20,7 +20,7 @@ import org.orangesoft.behave.json.Embedding;
  * 
  * @author Damian Szczepanik (damianszczepanik@github)
  */
-public class EmbeddingDeserializer extends CucumberJsonDeserializer<Embedding> {
+public class EmbeddingDeserializer extends BehaveJsonDeserializer<Embedding> {
 
     @Override
     public Embedding deserialize(JsonParser parser, Configuration configuration)

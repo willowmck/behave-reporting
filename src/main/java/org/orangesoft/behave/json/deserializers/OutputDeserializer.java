@@ -16,7 +16,7 @@ import org.orangesoft.behave.json.Output;
  * 
  * @author Damian Szczepanik (damianszczepanik@github)
  */
-public class OutputDeserializer extends CucumberJsonDeserializer<Output> {
+public class OutputDeserializer extends BehaveJsonDeserializer<Output> {
 
     @Override
     public Output deserialize(JsonParser parser, Configuration configuration)
