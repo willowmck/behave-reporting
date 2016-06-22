@@ -45,17 +45,13 @@ public abstract class ReportGenerator {
 
     protected void setUpWithJson(String... jsonFiles) throws Exception {
         for (String jsonFile : jsonFiles) {
-            System.out.println("Adding report " + jsonFile);
             addReport(jsonFile);
-            System.out.println("Completed adding report");
         }
 
         configuration = new Configuration(reportDirectory, projectName);
 
         createEmbeddingsDirectory();
-        System.out.println("Done creating embeddings directory");
         createReportBuilder();
-        System.out.println("Done creating reports builder");
     }
 
     private void addReport(String jsonReport)  throws Exception{
@@ -69,19 +65,13 @@ public abstract class ReportGenerator {
 
     private void createReportBuilder() throws Exception {
         ReportParser reportParser = new ReportParser(configuration);
-        System.out.println("Created report parser");
 
         List<Feature> featuresFromJson = reportParser.parseJsonResults(jsonReports);
-        System.out.println("Retrieved features from report parser");
         reportResult = new ReportResult(featuresFromJson);
-        System.out.println("Got report result");
 
         features = reportResult.getAllFeatures();
-        System.out.println("Retrieved all features");
         tags = reportResult.getAllTags();
-        System.out.println("Retrieved all tags");
         steps = reportResult.getAllSteps();
-        System.out.println("Retrieved all steps");
     }
 
     private void createEmbeddingsDirectory() {

@@ -35,7 +35,7 @@ public final class Util {
             .toFormatter();
 
     public static String formatDuration(long duration) {
-        return TIME_FORMATTER.print(new Period(0, duration / 1000000));
+        return TIME_FORMATTER.print(new Period(0, duration));
     }
 
     /**

@@ -17,14 +17,13 @@ public final class Configuration {
     private String jenkinsBasePath;
     private boolean runWithJenkins;
 
-    private File reportDirectory;
+    private final File reportDirectory;
     private String buildNumber;
-    private String projectName;
+    private final String projectName;
 
     public Configuration(File reportOutputDirectory, String projectName) {
         this.reportDirectory = reportOutputDirectory;
         this.projectName = projectName;
-        System.out.println("Creating Configuration object with reportDirectory = " + reportDirectory.getAbsolutePath() + " and projectName = " + projectName);
     }
 
     public void setStatusFlags(boolean failsIfSkipped, boolean failsIFPending, boolean failsIfUndefined,

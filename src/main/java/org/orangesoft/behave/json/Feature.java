@@ -150,27 +150,20 @@ public class Feature implements Reportable, Comparable<Feature> {
     /** Sets additional information and calculates values which should be calculated during object creation. */
     public void setMetaData(String jsonFile, int jsonFileNo, Configuration configuration) {
         this.jsonFile = StringUtils.substringAfterLast(jsonFile, File.pathSeparator);
-        System.out.println("[setMetadata] : jsonFile=" + jsonFile);
 
         for (Element element : elements) {
             element.setMedaData(this, configuration);
 
-             System.out.println("[setMetadata] : setMetadata in element");
             if (element.isScenario()) {
                 scenarios.add(element);
-                System.out.println("[setMetadata] : added element to scenario");
             }
         }
 
         setDeviceName();
-        System.out.println("[setMetadata] : set device name");
         setReportFileName(jsonFileNo, configuration);
-        System.out.println("[setMetadata] : set report filename");
         calculateFeatureStatus();
-        System.out.println("[setMetadata] : calculated feature status");
 
         calculateSteps();
-         System.out.println("[setMetadata] : calculated steps");
     }
 
     private void setDeviceName() {
@@ -193,12 +186,10 @@ public class Feature implements Reportable, Comparable<Feature> {
     private void setReportFileName(int jsonFileNo, Configuration configuration) {
         // remove all characters that might not be valid file name
         reportFileName = Util.toValidFileName(getReportLocation());
-        System.out.println("[setReportFileName] : report filename=" + reportFileName);
 
         // If we expect to have parallel executions, we add postfix to file name
         if (configuration.isParallelTesting()) {
             reportFileName += "_" + getDeviceName();
-            System.out.println("[setReportFileName] : modified report filename=" + reportFileName);
         }
 
         // if there is only one JSON file - skip unique prefix
@@ -206,11 +197,9 @@ public class Feature implements Reportable, Comparable<Feature> {
             // add jsonFile index to the file name so if two the same features are reported
             // in two different JSON files then file name must be different
             reportFileName += "_" + jsonFileNo;
-             System.out.println("[setReportFileName] : 2nd modified report filename=" + reportFileName);
         }
 
         reportFileName += ".html";
-        System.out.println("[setReportFileName] : 3rd modified report filename=" + reportFileName);
     }
 
     private void calculateFeatureStatus() {

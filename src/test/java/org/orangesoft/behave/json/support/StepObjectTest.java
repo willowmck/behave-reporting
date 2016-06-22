@@ -77,7 +77,7 @@ public class StepObjectTest {
         String duration = stepObject.getFormattedTotalDuration();
 
         // then
-        assertThat(duration).isEqualTo("3s 503ms");
+        assertThat(duration).isEqualTo("2d 13h 3m 20s");
     }
 
     @Test
@@ -103,7 +103,7 @@ public class StepObjectTest {
         String duration = stepObject.getFormattedAverageDuration();
 
         // then
-        assertThat(duration).isEqualTo("1s 167ms");
+        assertThat(duration).isEqualTo("6d 12h 21m 6s 666ms");
     }
 
     @Test

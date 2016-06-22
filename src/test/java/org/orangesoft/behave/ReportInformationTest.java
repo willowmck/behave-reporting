@@ -69,7 +69,7 @@ public class ReportInformationTest {
 
     @Test
     public void shouldReturnTotalDurationAsString() {
-        assertThat(reportResult.getFeatureReport().getFormattedDurations()).isEqualTo("117ms");
+        assertThat(reportResult.getFeatureReport().getFormattedDurations()).isEqualTo("1d 8h 40m 50s");
     }
 
     @Test
