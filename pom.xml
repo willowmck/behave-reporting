@@ -6,7 +6,7 @@
     <groupId>org.orangesoft</groupId>
     <artifactId>behave-reporting</artifactId>
     <packaging>jar</packaging>
-    <version>1.0</version>
+    <version>1.1-SNAPSHOT</version>
     <name>behave-reporting</name>
     <url>https://github.com/willowmck/behave-reporting</url>
 
