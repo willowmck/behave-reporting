@@ -139,8 +139,8 @@ public class TagObjectTest extends PageTest {
         }
 
         // then
-        assertThat(tag.getDurations()).isEqualTo(0L);
-        assertThat(tag.getFormattedDurations()).isEqualTo("000ms");
+        assertThat(tag.getDurations()).isEqualTo(460L);
+        assertThat(tag.getFormattedDurations()).isEqualTo("460ms");
     }
 
     @Test

@@ -16,7 +16,6 @@ import org.orangesoft.behave.json.Feature;
 import org.orangesoft.behave.json.Match;
 import org.orangesoft.behave.json.Result;
 import org.orangesoft.behave.json.Step;
-import org.orangesoft.behave.json.Tag;
 import org.orangesoft.behave.json.support.Resultsable;
 import org.orangesoft.behave.json.support.Status;
 import org.orangesoft.behave.json.support.StatusCounter;
@@ -126,15 +125,17 @@ public class ReportResult {
     }
 
     private void countSteps(Resultsable[] steps) {
-        for (Resultsable step : steps) {
+        for (Resultsable resultsable : steps) {
 
+            Step step = (Step) resultsable;
             Match match = step.getMatch();
             // no match = could not find method that was matched to this step -> status is missing
             if (match == null) {
                 continue;
             }
 
-            String methodName = match.getLocation();
+           //String methodName = match.getLocation();
+           String methodName = step.getKeyword() + " " + step.getName();
             // location is missing so there is no way to identify step
             if (StringUtils.isEmpty(methodName)) {
                 continue;
@@ -175,7 +176,7 @@ public class ReportResult {
     }
 
     private static <T extends Comparable<? super T>> List<T> mapToSortedList(Collection<T> values) {
-        List<T> list = new ArrayList<T>(values);
+        List<T> list = new ArrayList<>(values);
         Collections.sort(list);
         return list;
     }

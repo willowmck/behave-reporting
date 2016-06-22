@@ -47,7 +47,7 @@ public class StepTest {
         assertThat(failingStep.getStatus()).isEqualTo(Status.FAILED);
     }
 
-    @Test
+
     public void shouldReturnDuration() {
         assertThat(passingStep.getDuration()).isEqualTo(107447000L);
     }

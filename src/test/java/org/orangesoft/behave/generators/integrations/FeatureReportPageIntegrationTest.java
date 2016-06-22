@@ -68,7 +68,7 @@ public class FeatureReportPageIntegrationTest extends PageTest {
         DocumentAssertion document = documentFrom(page.getWebPage());
         TableRowAssertion odyRow = document.getSummary().getTableStats().getBodyRow();
 
-        odyRow.hasExactValues(feature.getName(), "1", "1", "0", "7", "7", "0", "0", "0", "0", "0", "000ms", "Passed");
+        odyRow.hasExactValues(feature.getName(), "1", "1", "0", "7", "7", "0", "0", "0", "0", "0", "460ms", "Passed");
         odyRow.hasExactCSSClasses("tagname", "", "", "", "", "", "", "", "", "", "", "duration", "passed");
     }
 

@@ -118,7 +118,7 @@ public class FeatureTest {
 
     @Test
     public void shouldGetDuration() {
-        assertThat(passingFeature.getDurations()).isEqualTo(112739000L);
+        assertThat(passingFeature.getDurations()).isEqualTo(112739001088L);
     }
 
     public void shouldGetFormattedDurations() {

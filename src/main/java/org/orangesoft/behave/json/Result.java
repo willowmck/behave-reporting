@@ -10,7 +10,7 @@ public class Result {
     private final String status = null;
     @JsonProperty("error_message")
     private final String errorMessage = null;
-    private final Long duration = 0L;
+    private final Float duration = 0F;
     // End: attributes from JSON file report
 
     public String getStatus() {
@@ -18,11 +18,11 @@ public class Result {
     }
 
     public long getDuration() {
-        return duration;
+        return ((long)(duration*1000));
     }
 
     public String getFormatedDuration() {
-        return Util.formatDuration(duration);
+        return Util.formatDuration(getDuration());
     }
 
     public String getErrorMessage() {

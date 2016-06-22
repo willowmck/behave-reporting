@@ -54,7 +54,7 @@ public class ResultTest extends PageTest {
         String duration = result.getFormatedDuration();
 
         // then
-        assertThat(duration).isEqualTo("000ms");
+        assertThat(duration).isEqualTo("300ms");
     }
 
     

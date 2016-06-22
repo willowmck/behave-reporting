@@ -93,7 +93,7 @@ public class StepsOverviewPageIntegrationTest extends PageTest {
         assertThat(bodyRows).hasSameSizeAs(steps);
 
         TableRowAssertion firstRow = bodyRows[1];
-        firstRow.hasExactValues("security/aws/pw-encrypt/steps/pw-encrypt.py:20", "1", "000ms", "000ms", "100.00%");
+        firstRow.hasExactValues("And prints out the encrypted password on the command line", "1", "000ms", "000ms", "100.00%");
         firstRow.hasExactCSSClasses("location", "", "duration", "duration", "passed");
         firstRow.hasExactDataValues("", "", "0", "0", "");
 
@@ -117,7 +117,7 @@ public class StepsOverviewPageIntegrationTest extends PageTest {
         DocumentAssertion document = documentFrom(page.getWebPage());
         TableRowAssertion footerCells = document.getSummary().getTableStats().getFooterRow();
 
-        footerCells.hasExactValues("7", "7", "000ms", "000ms", "Totals");
+        footerCells.hasExactValues("7", "7", "460ms", "065ms", "Totals");
     }
 
     @Test

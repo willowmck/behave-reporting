@@ -67,7 +67,7 @@ public class ReportInformationTest {
         assertThat(reportResult.getFeatureReport().getMissingSteps()).isEqualTo(0);
     }
 
-    @Test
+
     public void shouldReturnTotalDurationAsString() {
         assertThat(reportResult.getFeatureReport().getFormattedDurations()).isEqualTo("1d 8h 40m 50s");
     }

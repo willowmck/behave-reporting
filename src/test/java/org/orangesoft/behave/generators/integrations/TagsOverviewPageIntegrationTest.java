@@ -111,15 +111,15 @@ public class TagsOverviewPageIntegrationTest extends PageTest {
         assertThat(bodyRows).hasSize(2);
 
         TableRowAssertion firstRow = bodyRows[0];
-        firstRow.hasExactValues("@checkout", "1", "1", "0", "7", "7", "0", "0", "0", "0", "0", "000ms", "Passed");
+        firstRow.hasExactValues("@checkout", "1", "1", "0", "7", "7", "0", "0", "0", "0", "0", "460ms", "Passed");
         firstRow.hasExactCSSClasses("tagname", "", "", "", "", "", "", "", "", "", "", "duration", "passed");
-        firstRow.hasExactDataValues("", "", "", "", "", "", "", "", "", "", "", "0", "");
+        firstRow.hasExactDataValues("", "", "", "", "", "", "", "", "", "", "", "460", "");
         firstRow.getReportLink().hasLabelAndAddress("@checkout", "checkout.html");
 
         TableRowAssertion secondRow = bodyRows[1];
-        secondRow.hasExactValues("@slow", "1", "1", "0", "7", "7", "0", "0", "0", "0", "0", "000ms", "Passed");
+        secondRow.hasExactValues("@slow", "1", "1", "0", "7", "7", "0", "0", "0", "0", "0", "460ms", "Passed");
         secondRow.hasExactCSSClasses("tagname", "", "", "", "", "", "", "", "", "", "", "duration", "passed");
-        secondRow.hasExactDataValues("", "", "", "", "", "", "", "", "", "", "", "0", "");
+        secondRow.hasExactDataValues("", "", "", "", "", "", "", "", "", "", "", "460", "");
         secondRow.getReportLink().hasLabelAndAddress("@slow", "slow.html");
     }
 
@@ -137,7 +137,7 @@ public class TagsOverviewPageIntegrationTest extends PageTest {
         // then
         DocumentAssertion document = documentFrom(page.getWebPage());
         TableRowAssertion footerCells = document.getSummary().getTableStats().getFooterRow();
-        footerCells.hasExactValues("2", "2", "2", "0", "14", "14", "0", "0", "0", "0", "0", "000ms", "Totals");
+        footerCells.hasExactValues("2", "2", "2", "0", "14", "14", "0", "0", "0", "0", "0", "920ms", "Totals");
     }
 
     @Test

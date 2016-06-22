@@ -113,9 +113,9 @@ public class FeaturesOverviewPageIntegrationTest extends PageTest {
         assertThat(bodyRows).hasSize(1);
 
         TableRowAssertion firstRow = bodyRows[0];
-        firstRow.hasExactValues("Encrypt Cloud Manager functional account passwords and add them to the CM dynamodb settings table", "1", "1", "0", "7", "7", "0", "0", "0", "0", "0", "000ms", "Passed");
+        firstRow.hasExactValues("Encrypt Cloud Manager functional account passwords and add them to the CM dynamodb settings table", "1", "1", "0", "7", "7", "0", "0", "0", "0", "0", "460ms", "Passed");
         firstRow.hasExactCSSClasses("tagname", "", "", "", "", "", "", "", "", "", "", "duration", "passed");
-        firstRow.hasExactDataValues("", "", "", "", "", "", "", "", "", "", "", "0", "");
+        firstRow.hasExactDataValues("", "", "", "", "", "", "", "", "", "", "", "460", "");
         firstRow.getReportLink().hasLabelAndAddress("Encrypt Cloud Manager functional account passwords and add them to the CM dynamodb settings table", "security-aws-pw-encrypt-pw-encrypt-feature-2.html");
 
     }
@@ -135,7 +135,7 @@ public class FeaturesOverviewPageIntegrationTest extends PageTest {
         DocumentAssertion document = documentFrom(page.getWebPage());
         TableRowAssertion footerCells = document.getSummary().getTableStats().getFooterRow();
 
-        footerCells.hasExactValues("1", "1", "1", "0", "7", "7", "0", "0", "0", "0", "0", "000ms", "Totals");
+        footerCells.hasExactValues("1", "1", "1", "0", "7", "7", "0", "0", "0", "0", "0", "460ms", "Totals");
     }
 
     @Test
